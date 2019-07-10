@@ -97,14 +97,18 @@
       <div @click="choose_bg_color()">颜色</div>
     </div>
 
+    <Footer></Footer>
 
 
   </div>
 </template>
 
 <script>
+import Footer from './my_footer'
+
 export default {
   name: 'HelloWorld',
+  components: {Footer},
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
