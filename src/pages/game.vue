@@ -1,6 +1,6 @@
 <template>
   <div :style="{backgroundColor: bg_color}" class="container">
-    <div class="second_container">
+    <div v-if="!is_new_img" class="second_container">
       <div class="create_img" :style="{backgroundColor: 'yellow'}">
         <div class="back_img">
           <img src="../src/back.png">
@@ -8,7 +8,7 @@
         </div>
         <div class="next_img">
           <div>生成海报</div>
-          <img src="../src/next.png">
+          <img src="../src/next.png" @click="change_is_new_img()">
         </div>
 
         <div style="position: relative;height: 100%;width: 100%">
@@ -46,7 +46,18 @@
         <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'yellow':'#fff'}" class="choose_button">颜色</div>
       </div>
     </div>
-    <div></div>
+
+    <div v-if="is_new_img">
+      <div>
+        <div class="new_image" :style="{backgroundColor: 'yellow'}">
+          <div style="position: relative;height: 100%;width: 100%">
+            <img :src="new_image.bg" class="greate_img_bg">
+            <img :src="new_image.person" class="greate_img_person">
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -108,21 +119,39 @@
           {bg:require('../src/bg/bg23.png')},
           {bg:require('../src/bg/bg24.png')},
         ],
-        color_list:[{color:'red'},{color:'blue'},{color:'#fff'},{color:'pink'},{color:'yellow'}],
+        color_list:[{color:'yellow'},{color:'blue'},{color:'#fff'},{color:'pink'},{color:'yellow'}],
+        new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},
+
+        is_new_img:false
       }
     },
     mounted(){
-      this.show_img = this.person_list[0].img
+      this.show_img = this.person_list[0].img;
+      this.show_bg = this.bg_list[0].bg;
+      this.bg_color = this.color_list[0].color;
+
+      this.new_image.person = this.person_list[0].img;
+      this.new_image.name = this.person_list[0].name;
+      this.new_image.able = this.person_list[0].able;
+      this.new_image.im = this.person_list[0].im;
+      this.new_image.bg = this.bg_list[0].bg;
+      this.new_image.color = this.color_list[0].color;
     },
     methods:{
       change_person(id){
-        this.show_img = this.person_list[id].img
+        this.show_img = this.person_list[id].img;
+        this.new_image.person = this.person_list[id].img;
+        this.new_image.name = this.person_list[id].name;
+        this.new_image.able = this.person_list[id].able;
+        this.new_image.im = this.person_list[id].im;
       },
       change_bg(id){
-        this.show_bg = this.bg_list[id].bg
+        this.show_bg = this.bg_list[id].bg;
+        this.new_image.bg = this.bg_list[id].bg;
       },
       change_color(id){
-        this.bg_color = this.color_list[id].color
+        this.bg_color = this.color_list[id].color;
+        this.new_image.color = this.color_list[id].color;
       },
       choose_person(){
         this.show_choose_person = true;
@@ -138,6 +167,10 @@
         this.show_choose_person = false;
         this.show_choose_gd = false;
         this.show_choose_bg_color = true
+      },
+      change_is_new_img(){
+        this.is_new_img = true;
+        this.bg_color = 'yellow'
       }
     }
   }
@@ -250,6 +283,25 @@
     text-align: center;
     font-size: 1.5rem;
     font-family: SourceHanSansSC-Bold;
+  }
+
+  .new_image{
+    position: relative;
+    width: 70vw;
+    height: 95vw;
+    border: 4px solid #000;
+  }
+  .greate_img_bg{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%
+  }
+  .greate_img_person{
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    bottom: 0
   }
 
 </style>
