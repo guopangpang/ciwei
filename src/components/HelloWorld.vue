@@ -1,85 +1,104 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div :style="{backgroundColor: bg_color}" class="container">
+    <div class="hello">
+      砸 瓦鲁多！！！
+    </div>
+    <div class="aaa">
+      砸 瓦鲁多！！！
+    </div>
+    <div class="bbb">
+      the World!!
+    </div>
+    <div class="ccc">
+      the World!!
+    </div>
+    <div class="ddd">
+      the World!!
+    </div>
+
+    <div class="eeee" :style="{backgroundColor: 'yellow'}">
+      <div style="position: relative;height: 100%;width: 80%">
+        <img :src="show_bg" style="position: absolute;top: 0;width: 100%;height: 100%">
+        <img :src="show_img" style="position: absolute;bottom: 0">
+      </div>
+    </div>
+
+    <div>
+      <div v-if="show_choose_person" style="display:flex; width: 75vw;overflow: auto">
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物1</div>
+        </div>
+        <div style="width: 50px;flex: none" @click="aaaa()">
+          <img src="../src/test/gongneng.png" style="width: 40px">
+          <div>人物11</div>
+        </div>
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物2</div>
+        </div>
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/sanzi.png" style="width: 40px">
+          <div>人物4</div>
+        </div>
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物6</div>
+        </div>
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物5</div>
+        </div>
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物1</div>
+        </div>
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物1</div>
+        </div>
+
+      </div>
+
+      <div v-if="show_choose_gd" style="display:flex; width: 75vw;overflow: auto">
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物1</div>
+        </div>
+        <div style="width: 50px;flex: none" @click="bbbb()">
+          <img src="../src/test/gongneng.png" style="width: 40px">
+          <div>人物11</div>
+        </div>
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物2</div>
+        </div>
+      </div>
+
+      <div v-if="show_choose_bg_color" style="display:flex; width: 75vw;overflow: auto">
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物1</div>
+        </div>
+        <div style="width: 50px;flex: none" @click="cccc()">
+          <img src="../src/test/gongneng.png" style="width: 40px">
+          <div>人物11</div>
+        </div>
+        <div style="width: 50px;flex: none">
+          <img src="../src/test/chanquan.png" style="width: 40px">
+          <div>人物2</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex">
+      <div @click="choose_person()">人物</div>
+      <div @click="choose_bg()">背景</div>
+      <div @click="choose_bg_color()">颜色</div>
+    </div>
+
+
+
   </div>
 </template>
 
@@ -88,7 +107,39 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      show_img:require('../src/test/chanquan.png'),
+      show_bg:require('../src/test/five.png'),
+      bg_color:'red',
+      show_choose_person:true,
+      show_choose_gd:false,
+      show_choose_bg_color:false
+    }
+  },
+  methods:{
+    aaaa(){
+      this.show_img = require('../src/test/sanzi.png')
+    },
+    bbbb(){
+      this.show_bg = require('../src/test/four.png')
+    },
+    cccc(){
+      this.bg_color = 'green'
+    },
+    choose_person(){
+      this.show_choose_person = true;
+      this.show_choose_gd = false;
+      this.show_choose_bg_color = false
+    },
+    choose_bg(){
+      this.show_choose_person = false;
+      this.show_choose_gd = true;
+      this.show_choose_bg_color = false
+    },
+    choose_bg_color(){
+      this.show_choose_person = false;
+      this.show_choose_gd = false;
+      this.show_choose_bg_color = true
     }
   }
 }
@@ -96,18 +147,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  .container{
+    height: 80vh
+  }
+  .hello{
+    font-family: SourceHanSansSC-Bold;
+  }
+  .aaa{
+    font-family: SourceHanSansSC-Light;
+  }
+  .bbb{
+    font-family: FF-DIN-Round-Pro-Black;
+  }
+  .ccc{
+    font-family: FF-DIN-Round-Pro-Bold;
+  }
+  .ddd{
+    font-family: FF-DIN-Round-Pro-Medium;
+  }
+  .eeee{
+    width: 90%;
+    height: 300px;
+    border: 4px solid #000;
+  }
 </style>

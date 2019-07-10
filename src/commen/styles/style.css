@@ -1,0 +1,20 @@
+@font-face{
+  font-family: SourceHanSansSC-Bold;
+  src: url('../../font/SourceHanSansSC-Bold.otf');
+}
+@font-face{
+  font-family: SourceHanSansSC-Light;
+  src: url('../../font/SourceHanSansSC-Light.otf');
+}
+@font-face{
+  font-family: FF-DIN-Round-Pro-Black;
+  src: url('../../font/FF-DIN-Round-Pro-Black.otf');
+}
+@font-face{
+  font-family: FF-DIN-Round-Pro-Bold;
+  src: url('../../font/FF-DIN-Round-Pro-Bold.otf');
+}
+@font-face{
+  font-family: FF-DIN-Round-Pro-Medium;
+  src: url('../../font/FF-DIN-Round-Pro-Medium.otf');
+}
