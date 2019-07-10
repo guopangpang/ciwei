@@ -4,10 +4,14 @@
     <div class="share-img">
       <img :src="imgUrl" alt="分享图">
     </div>
+    <a :href="imgUrl" download="logo.png">下载图片</a>
     <div class="creat-img" ref="box">
       <img src="../src/header.jpg" style="width: 200px;height: 200px" alt="分享背景图">
+
       <!--<div id="qrcode" class="qrcode"></div>-->
       <img src="../src/header.jpg" style="width: 100px;height: 100px;margin-left: -100px" alt="分享背景图">
+      <div>333333333</div>
+      <div style="background-color: red">44444444444</div>
     </div>
   </div>
 </template>
@@ -45,7 +49,7 @@ export default {
       // });
       html2canvas(that.$refs.box,{
         backgroundColor: null,
-        width:100,
+        width:200,
         useCORS: true // 如果截图的内容里有图片,可能会有跨域的情况,加上这个参数,解决文件跨域问题
       }).then(function (canvas) {
         // that.imgUrl = URL.createObjectURL(that.base64ToBlob(canvas.toDataURL()))
