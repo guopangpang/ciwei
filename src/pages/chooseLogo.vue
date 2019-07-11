@@ -28,7 +28,7 @@
             <div class="start_game">START GAME</div>
             <div class="shaoshao">
               <div style="margin-top: .3rem">扫一扫</div>
-              <div style="margin-top: -0.2rem">变怪兽</div>
+              <div style="margin-top: -0.4rem">变怪兽</div>
             </div>
           </div>
           <div class="footer_second">
@@ -42,7 +42,6 @@
         <img src="../src/test/chanquan.png" class="erweima_img">
       </div>
     </div>
-
   </div>
 </template>
 
@@ -80,7 +79,7 @@
           this.number = 3
         },
         goto_login(){
-          this.$router.replace({path:'/login',query:{num:this.number}})
+          this.$router.push({path:'/login',query:{num:this.number}})
         }
       }
     }
@@ -89,30 +88,30 @@
 <style scoped>
   .container{
     width: 100vw;
-    height: 99.5vh;
+    height: 100vh;
     background-color: yellow;
   }
   .second_container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: calc(100% - 2.4rem);
-    height: calc(100% - 2.4rem);
-    padding: 1.2rem
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    padding: 1rem
   }
   .header_logo_img{
     display: block;
     width: 100%;
   }
   .choose{
-    margin: 1.2rem 0 0 0;
+    margin: 1rem 0 0 0;
     border: 4px solid #000;
   }
   .title{
     display: flex;
     justify-content: space-between;
     width: calc(100% - 1.6rem);
-    margin: .8rem;
+    margin: .8rem .8rem 0;
   }
   .title_left{}
   .game_master{
@@ -136,7 +135,7 @@
   }
   .bianzu img{
     margin: .6rem 0 0 0;
-    width: 75%;
+    width: 72%;
   }
   .create_button{
     border: 3px solid #000;
@@ -171,13 +170,15 @@
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
-    width: 21vw;
+    width: 20vw;
+    height: 20vw;
   }
   .footer_second{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%
+    width: 100%;
+    margin-top: -0.5rem;
   }
   .tuoluoguai{
     /*margin-right: .2vw;*/

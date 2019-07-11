@@ -3,7 +3,7 @@
     <div v-if="!is_new_img" class="second_container">
       <div class="create_img" :style="{backgroundColor: 'yellow'}">
         <div class="back_img">
-          <img src="../src/back.png">
+          <img src="../src/back.png" @click="back_login()">
           <div>返回编辑</div>
         </div>
         <div class="next_img">
@@ -47,22 +47,51 @@
       </div>
     </div>
 
-    <div v-if="is_new_img">
-      <div>
-        <div class="new_image" :style="{backgroundColor: 'yellow'}">
-          <div style="position: relative;height: 100%;width: 100%">
-            <img :src="new_image.bg" class="greate_img_bg">
-            <img :src="new_image.person" class="greate_img_person">
+    <div v-if="is_new_img" class="third_container">
+      <div :style="{backgroundColor: 'red'}" class="new_img_bg" ref="box" v-if="is_true_img">
+        <div style="padding: 5vw 0 2vw">
+          <div class="new_img_title">
+            <div>我是 [呆萌品牌设计师]</div>
+            <div>擅长 [低调奢华有内涵]</div>
+          </div>
+          <div class="new_image">
+            <div style="position: relative;height: 100%;width: 100%">
+              <div></div>
+              <img :src="new_image.bg" class="greate_img_bg">
+              <img :src="new_image.person" class="greate_img_person">
+            </div>
           </div>
         </div>
+        <div class="footer_info">
+          <div style="width: 100%">
+            <div class="footer_first">
+              <div class="start_game">START GAME</div>
+              <div class="shaoshao">
+                <div style="margin-top: .3rem">扫一扫</div>
+                <div style="margin-top: -0.4rem">变怪兽</div>
+              </div>
+            </div>
+            <div class="footer_second">
+              <div class="tuoluoguai">我的陀螺怪</div>
+              <div class="wojiushi">
+                <div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>
+                <div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>
+              </div>
+            </div>
+          </div>
+          <img src="../src/test/chanquan.png" class="erweima_img">
+        </div>
       </div>
+
+      <!--<img :src="imgUrl" style="width: 70vw;margin-top: 15vw;box-shadow: 0 0 3vw #666;">-->
     </div>
+
 
   </div>
 </template>
 
 <script>
-
+  import html2canvas from 'html2canvas'
   export default {
     name: 'game',
     data () {
@@ -122,7 +151,9 @@
         color_list:[{color:'yellow'},{color:'blue'},{color:'#fff'},{color:'pink'},{color:'yellow'}],
         new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},
 
-        is_new_img:false
+        is_new_img:false,
+        imgUrl:'',
+        is_true_img:true
       }
     },
     mounted(){
@@ -168,10 +199,27 @@
         this.show_choose_gd = false;
         this.show_choose_bg_color = true
       },
+      //显示新生成的图片
       change_is_new_img(){
         this.is_new_img = true;
-        this.bg_color = 'yellow'
-      }
+        this.bg_color = 'yellow';
+        this.$nextTick(()=>{
+          this.create_img()
+        });
+      },
+      back_login(){
+        this.$router.push({path:'/login'})
+      },
+      create_img(){
+        html2canvas(this.$refs.box,{
+          backgroundColor: null,
+          useCORS: true // 如果截图的内容里有图片,可能会有跨域的情况,加上这个参数,解决文件跨域问题
+        }).then((canvas) => {
+          // this.imgUrl = URL.createObjectURL(this.base64ToBlob(canvas.toDataURL()))
+          this.imgUrl = canvas.toDataURL("image/png");
+          // this.is_true_img = false
+        })
+      },
     }
   }
 </script>
@@ -179,7 +227,7 @@
 <style scoped>
   .container{
     width: 100vw;
-    height: 99.5vh;
+    height: 100vh;
   }
   .second_container{
     display: flex;
@@ -285,11 +333,31 @@
     font-family: SourceHanSansSC-Bold;
   }
 
+  .third_container{
+    /*text-align: center;*/
+    display: flex;
+    justify-content: center;
+  }
+  .new_img_bg{
+    width: 80vw;
+  }
+  .new_img_title{
+    border: 4px solid #000;
+    /*border-bottom: none;*/
+    width: 70vw;
+    margin: 0 auto -4px;
+  }
+  .new_img_title div{
+    text-align: center;
+    font-size: 6.6vw;
+    font-family: SourceHanSansSC-Bold;
+  }
   .new_image{
     position: relative;
     width: 70vw;
-    height: 95vw;
+    height: 85vw;
     border: 4px solid #000;
+    margin: 0 auto;
   }
   .greate_img_bg{
     position: absolute;
@@ -303,5 +371,51 @@
     left: 5%;
     bottom: 0
   }
+
+  .footer_info{
+    display: flex;
+    width: 87.5%;
+    margin:  0 auto;
+    justify-content: space-between;
+    padding-bottom: 5vw;
+  }
+  .footer_first{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%
+  }
+  .start_game{
+    font-size: 7.55vw;
+    font-family: FF-DIN-Round-Pro-Medium;
+  }
+  .shaoshao{
+    /*margin: 0 0 0 .7rem;*/
+    font-size: 3.36vw;
+    font-family: SourceHanSansSC-Bold;
+  }
+  .erweima_img{
+    width: 14vw;
+    height: 14vw;
+    margin-top: 1.5vw;
+  }
+  .footer_second{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: -0.5rem;
+  }
+  .tuoluoguai{
+    /*margin-right: .2vw;*/
+    font-size: 5.62vw;
+    font-family: SourceHanSansSC-Bold;
+  }
+  .wojiushi{
+    font-size: 2.4vw;
+    font-family: SourceHanSansSC-Bold;
+  }
+
+
 
 </style>
