@@ -47,18 +47,31 @@
       </div>
     </div>
 
-    <div v-if="is_new_img" class="third_container">
+    <div v-if="is_new_img" class="third_container" ref="box">
       <div :style="{backgroundColor: 'red'}" class="new_img_bg" ref="box" v-if="is_true_img">
         <div style="padding: 5vw 0 2vw">
           <div class="new_img_title">
             <div>我是 [呆萌品牌设计师]</div>
-            <div>擅长 [低调奢华有内涵]</div>
+            <div style="margin-top: -6px">擅长 [低调奢华有内涵]</div>
           </div>
           <div class="new_image">
             <div style="position: relative;height: 100%;width: 100%">
-              <div></div>
+              <div class="title_right_left">
+                <div class="title_left">
+                  <div class="game_master">GAME</div>
+                  <div class="game_master" style="margin-top: -0.4rem">MASTER</div>
+                  <div class="game_master_ch">游戏大咖</div>
+                </div>
+                <div class="title_right">
+                  <div class="number">NO.{{number}}</div>
+                  <div class="number_logo">L{{number}}满级</div>
+                </div>
+              </div>
               <img :src="new_image.bg" class="greate_img_bg">
               <img :src="new_image.person" class="greate_img_person">
+              <img class="rigjt_logo" src="../src/logo.png" style="position: absolute;z-index: 5000;width: 8vw;bottom: 8vw;right: 0;transform:rotate(90deg)">
+              <div style="position: absolute;z-index: 5000;top: 18vw;left:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">刺猬／是我</div>
+              <div style="position: absolute;z-index: 5000;top: 18vw;right:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">我是／设计师</div>
             </div>
           </div>
         </div>
@@ -67,14 +80,14 @@
             <div class="footer_first">
               <div class="start_game">START GAME</div>
               <div class="shaoshao">
-                <div style="margin-top: .3rem">扫一扫</div>
+                <div style="margin-top: 0">扫一扫</div>
                 <div style="margin-top: -0.4rem">变怪兽</div>
               </div>
             </div>
             <div class="footer_second">
               <div class="tuoluoguai">我的陀螺怪</div>
               <div class="wojiushi">
-                <div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>
+                <div style="">我就是 [XXX 品牌设计师]</div>
                 <div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>
               </div>
             </div>
@@ -82,9 +95,9 @@
           <img src="../src/test/chanquan.png" class="erweima_img">
         </div>
       </div>
-
-      <!--<img :src="imgUrl" style="width: 70vw;margin-top: 15vw;box-shadow: 0 0 3vw #666;">-->
+      <img :src="imgUrl" style="width: 75vw;margin-top: 5vw">
     </div>
+
 
 
   </div>
@@ -99,6 +112,7 @@
         show_img:'',
         show_bg:require('../src/bg/bg1.png'),
         bg_color:'yellow',
+        number:2,
         show_choose_person:true,
         show_choose_gd:false,
         show_choose_bg_color:false,
@@ -217,7 +231,7 @@
         }).then((canvas) => {
           // this.imgUrl = URL.createObjectURL(this.base64ToBlob(canvas.toDataURL()))
           this.imgUrl = canvas.toDataURL("image/png");
-          // this.is_true_img = false
+          this.is_true_img = false
         })
       },
     }
@@ -336,7 +350,9 @@
   .third_container{
     /*text-align: center;*/
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   .new_img_bg{
     width: 80vw;
@@ -371,13 +387,41 @@
     left: 5%;
     bottom: 0
   }
+  .title_right_left{
+    position: absolute;
+    top: 0;
+    width: 94%;
+    margin: 0 3%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5000;
+  }
+
+  .title_left{}
+  .game_master{
+    font-family: FF-DIN-Round-Pro-Bold;
+  }
+  .game_master_ch{
+    margin-top: -1vw;
+    font-family: SourceHanSansSC-Bold;
+  }
+  .title_right{}
+  .number{
+    font-family: FF-DIN-Round-Pro-Medium;
+    font-size: 1.8rem;
+  }
+  .number_logo{
+    text-align: right;
+    font-family: SourceHanSansSC-Bold;
+    font-size: .4rem;
+  }
 
   .footer_info{
     display: flex;
-    width: 87.5%;
+    width: 70vw;
     margin:  0 auto;
     justify-content: space-between;
-    padding-bottom: 5vw;
+    padding-bottom: 8vw;
   }
   .footer_first{
     display: flex;
@@ -386,12 +430,12 @@
     width: 100%
   }
   .start_game{
-    font-size: 7.55vw;
+    font-size: 7vw;
     font-family: FF-DIN-Round-Pro-Medium;
   }
   .shaoshao{
     /*margin: 0 0 0 .7rem;*/
-    font-size: 3.36vw;
+    font-size: 3vw;
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
@@ -412,6 +456,7 @@
     font-family: SourceHanSansSC-Bold;
   }
   .wojiushi{
+    margin-top: 0.4rem;
     font-size: 2.4vw;
     font-family: SourceHanSansSC-Bold;
   }
