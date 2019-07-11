@@ -80,7 +80,7 @@
           this.number = 3
         },
         goto_login(){
-          this.$router.push({path:'/login',query:{num:this.number}})
+          this.$router.replace({path:'/login',query:{num:this.number}})
         }
       }
     }

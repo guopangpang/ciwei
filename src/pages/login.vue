@@ -68,10 +68,10 @@
     methods:{
       goto_game(){
         console.log(this.my_name,this.my_work);
-        this.$router.push({path:'/game',query:{num:this.number,my_name:this.my_name,my_work:this.my_work}})
+        this.$router.replace({path:'/game',query:{num:this.number,my_name:this.my_name,my_work:this.my_work}})
       },
       goto_back(){
-        this.$router.push({path:'/'})
+        this.$router.replace({path:'/'})
       }
     }
   }
