@@ -64,18 +64,21 @@
           this.show_bianzu1 = require('../src/bianzi/bianzu1_yellow.png');
           this.show_bianzu2 = require('../src/bianzi/bianzu2.png');
           this.show_bianzu3 = require('../src/bianzi/bianzu3.png');
+          localStorage.setItem('number',1);
           this.number = 1
         },
         bianzu2(){
           this.show_bianzu1 = require('../src/bianzi/bianzu1.png');
           this.show_bianzu2 = require('../src/bianzi/bianzu2_yellow.png');
           this.show_bianzu3 = require('../src/bianzi/bianzu3.png');
+          localStorage.setItem('number',2);
           this.number = 2
         },
         bianzu3(){
           this.show_bianzu1 = require('../src/bianzi/bianzu1.png');
           this.show_bianzu2 = require('../src/bianzi/bianzu2.png');
           this.show_bianzu3 = require('../src/bianzi/bianzu3_yellow.png');
+          localStorage.setItem('number',3);
           this.number = 3
         },
         goto_login(){
@@ -142,7 +145,7 @@
     width: 8rem;
     height: 2.8rem;
     line-height: 2.8rem;
-    border-radius: 1.4rem;
+    border-radius: 2.8rem;
     margin: 0 calc(50% - 4rem) 1rem;
     background-color: #fff;
     text-align: center;
@@ -161,7 +164,7 @@
     width: 100%
   }
   .start_game{
-    font-size: 9.5vw;
+    font-size: 10vw;
     font-family: FF-DIN-Round-Pro-Medium;
   }
   .shaoshao{
@@ -170,8 +173,9 @@
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
-    width: 20vw;
-    height: 20vw;
+    width: 19vw;
+    height: 19vw;
+    margin-top: 1.5vw;
   }
   .footer_second{
     display: flex;
@@ -182,7 +186,7 @@
   }
   .tuoluoguai{
     /*margin-right: .2vw;*/
-    font-size: 6.6vw;
+    font-size: 6.8vw;
     font-family: SourceHanSansSC-Bold;
   }
   .wojiushi{

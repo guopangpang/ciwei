@@ -14,6 +14,8 @@
         <div style="position: relative;height: 100%;width: 100%">
           <img :src="show_bg" class="greate_img_bg">
           <img :src="show_img" class="greate_img_person">
+          <div style="position: absolute;z-index: 5000;top: 18vw;left:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">{{my_name}}／是我</div>
+          <div style="position: absolute;z-index: 5000;top: 18vw;right:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">我是／{{my_work}}</div>
         </div>
       </div>
 
@@ -47,12 +49,22 @@
       </div>
     </div>
 
+    <div v-if="is_new_img" style="position: fixed;bottom: 3vw">
+      <div style="display: flex;justify-content: space-between;width: 75vw;margin: 5vw 12.5vw">
+        <div class="choose_button2" @click="back_choose_person()">返回</div>
+        <div class="choose_button2">
+          <a :href="imgUrl" download="logo.png" style="color: #000000;text-decoration:none;">长按</a>
+        </div>
+        <div class="choose_button2" @click="goto_fenxiang()">分享</div>
+      </div>
+    </div>
+
     <div v-if="is_new_img" class="third_container" ref="box">
-      <div :style="{backgroundColor: 'red'}" class="new_img_bg" ref="box" v-if="is_true_img">
+      <div :style="{backgroundColor: new_image.color}" class="new_img_bg" ref="box" v-show="is_true_img">
         <div style="padding: 5vw 0 2vw">
           <div class="new_img_title">
-            <div>我是 [呆萌品牌设计师]</div>
-            <div style="margin-top: -6px">擅长 [低调奢华有内涵]</div>
+            <div>{{new_image.im}}</div>
+            <div style="margin-top: -6px">{{new_image.able}}</div>
           </div>
           <div class="new_image">
             <div style="position: relative;height: 100%;width: 100%">
@@ -70,8 +82,8 @@
               <img :src="new_image.bg" class="greate_img_bg">
               <img :src="new_image.person" class="greate_img_person">
               <img class="rigjt_logo" src="../src/logo.png" style="position: absolute;z-index: 5000;width: 8vw;bottom: 8vw;right: 0;transform:rotate(90deg)">
-              <div style="position: absolute;z-index: 5000;top: 18vw;left:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">刺猬／是我</div>
-              <div style="position: absolute;z-index: 5000;top: 18vw;right:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">我是／设计师</div>
+              <div style="position: absolute;z-index: 5000;top: 18vw;left:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">{{my_name}}／是我</div>
+              <div style="position: absolute;z-index: 5000;top: 18vw;right:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">我是／{{my_work}}</div>
             </div>
           </div>
         </div>
@@ -85,20 +97,18 @@
               </div>
             </div>
             <div class="footer_second">
-              <div class="tuoluoguai">我的陀螺怪</div>
+              <div class="tuoluoguai">{{new_image.name}}</div>
               <div class="wojiushi">
-                <div style="">我就是 [XXX 品牌设计师]</div>
-                <div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>
+                <div style="">角色 [你心中的超级英雄]</div>
+                <div style="margin-top: -0.2rem">惊喜 [性格彩蛋最终显示]]</div>
               </div>
             </div>
           </div>
           <img src="../src/test/chanquan.png" class="erweima_img">
         </div>
       </div>
-      <img :src="imgUrl" style="width: 75vw;margin-top: 5vw">
+      <img :src="imgUrl" style="width: 75vw;margin-top: 5vw;box-shadow:0 0 10px #000" v-show="!is_true_img">
     </div>
-
-
 
   </div>
 </template>
@@ -109,37 +119,39 @@
     name: 'game',
     data () {
       return {
+        my_name:'',
+        my_work:'',
         show_img:'',
         show_bg:require('../src/bg/bg1.png'),
-        bg_color:'yellow',
+        bg_color:'',
         number:2,
         show_choose_person:true,
         show_choose_gd:false,
         show_choose_bg_color:false,
-        person_list:[{img:require('../src/person/1.png'),name:'',im:'',able:''},
-          {img:require('../src/person/2.png'),name:'',im:'',able:''},
-          {img:require('../src/person/3.png'),name:'',im:'',able:''},
-          {img:require('../src/person/4.png'),name:'',im:'',able:''},
-          {img:require('../src/person/5.png'),name:'',im:'',able:''},
-          {img:require('../src/person/6.png'),name:'',im:'',able:''},
-          {img:require('../src/person/7.png'),name:'',im:'',able:''},
-          {img:require('../src/person/8.png'),name:'',im:'',able:''},
-          {img:require('../src/person/9.png'),name:'',im:'',able:''},
-          {img:require('../src/person/10.png'),name:'',im:'',able:''},
-          {img:require('../src/person/11.png'),name:'',im:'',able:''},
-          {img:require('../src/person/12.png'),name:'',im:'',able:''},
-          {img:require('../src/person/13.png'),name:'',im:'',able:''},
-          {img:require('../src/person/14.png'),name:'',im:'',able:''},
-          {img:require('../src/person/15.png'),name:'',im:'',able:''},
-          {img:require('../src/person/16.png'),name:'',im:'',able:''},
-          {img:require('../src/person/17.png'),name:'',im:'',able:''},
-          {img:require('../src/person/18.png'),name:'',im:'',able:''},
-          {img:require('../src/person/19.png'),name:'',im:'',able:''},
-          {img:require('../src/person/20.png'),name:'',im:'',able:''},
+        person_list:[{img:require('../src/person/1.png'),name:'刺猬陀螺怪',im:'我是 [佛系品牌设计师] ',able:'擅长 [吹牛卖稿谈客户]'},
+          {img:require('../src/person/2.png'),name:'刺猬陀螺怪',im:'我是 [软萌品牌设计师]',able:'擅长 [沟通交流一稿过]'},
+          {img:require('../src/person/3.png'),name:'刺猬陀螺怪',im:'我是 [肥宅品牌设计师]',able:'擅长 [节约时尚国际范]'},
+          {img:require('../src/person/4.png'),name:'刺猬陀螺怪',im:'我是 [逗比品牌设计师]',able:'擅长 [帅气风流有文化]'},
+          {img:require('../src/person/5.png'),name:'波波陀螺怪',im:'我是 [闷骚品牌设计师]',able:'擅长[熬夜加班改稿件]'},
+          {img:require('../src/person/6.png'),name:'小美陀螺怪',im:'我是 [学霸品牌设计师]',able:'擅长[熬夜加班改稿件]'},
+          {img:require('../src/person/7.png'),name:'落鸡陀螺怪',im:'我是 [朋克品牌设计师]',able:'擅长[时尚动感小清新]'},
+          {img:require('../src/person/8.png'),name:'托尼陀螺怪',im:'我是 [咸鱼品牌设计师]',able:'擅长 [软件技能样样通]'},
+          {img:require('../src/person/9.png'),name:'好抠陀螺怪',im:'我是 [懒癌品牌设计师]',able:'擅长 [酷炫狂拽吊炸天]'},
+          {img:require('../src/person/10.png'),name:'诺娃陀螺怪',im:'我是 [萝莉品牌设计师]',able:'擅长 [冷艳高贵接地气]'},
+          {img:require('../src/person/11.png'),name:'山姆陀螺怪',im:'我是 [学渣品牌设计师] ',able:'擅长 [奔放洋气有风度]'},
+          {img:require('../src/person/12.png'),name:'猪猪陀螺怪',im:'我是 [吃货品牌设计师]',able:'擅长 [学习总结做设计]'},
+          {img:require('../src/person/13.png'),name:'安娜陀螺怪',im:'我是 [御姐品牌设计师]',able:'擅长 [外猛内柔女汉子]'},
+          {img:require('../src/person/14.png'),name:'小美陀螺怪',im:'我是 [修仙品牌设计师]',able:'擅长 [首页私活赚大发]'},
+          {img:require('../src/person/15.png'),name:'雷雷陀螺怪',im:'我是 [清真品牌设计师] ',able:'擅长 [忧郁深沉无所谓]'},
+          {img:require('../src/person/16.png'),name:'星星陀螺怪',im:'我是 [怪诞品牌设计师]',able:'擅长 [低调奢华有内涵]'},
+          {img:require('../src/person/17.png'),name:'精杠陀螺怪',im:'我是 [奶狗品牌设计师]',able:'擅长 [字体品牌做捞狗]'},
+          {img:require('../src/person/18.png'),name:'噜当陀螺怪',im:'我是 [暖男品牌设计师] ',able:'擅长 [卖萌嘟嘴剪刀手]'},
+          {img:require('../src/person/19.png'),name:'斯斯陀螺怪',im:'我是 [硬核品牌设计师]',able:'擅长 [生活工作两不误]'},
+          {img:require('../src/person/20.png'),name:'扁壶陀螺怪',im:'我是 [精分品牌设计师]',able:'擅长 [五彩斑斓的黑色]'},
         ],
-        bg_list:[{bg:require('../src/bg/bg1.png')},
+        bg_list:[{bg:require('../src/bg/bg3.png')},
+          {bg:require('../src/bg/bg1.png')},
           {bg:require('../src/bg/bg2.png')},
-          {bg:require('../src/bg/bg3.png')},
           {bg:require('../src/bg/bg4.png')},
           {bg:require('../src/bg/bg5.png')},
           {bg:require('../src/bg/bg6.png')},
@@ -162,7 +174,7 @@
           {bg:require('../src/bg/bg23.png')},
           {bg:require('../src/bg/bg24.png')},
         ],
-        color_list:[{color:'yellow'},{color:'blue'},{color:'#fff'},{color:'pink'},{color:'yellow'}],
+        color_list:[{color:'yellow'},{color:'#fff'},{color:'#00FFFF'},{color:'pink'},{color:'red'}],
         new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},
 
         is_new_img:false,
@@ -181,6 +193,9 @@
       this.new_image.im = this.person_list[0].im;
       this.new_image.bg = this.bg_list[0].bg;
       this.new_image.color = this.color_list[0].color;
+
+      this.my_name = localStorage.getItem('my_name');
+      this.my_work = localStorage.getItem('my_work')
     },
     methods:{
       change_person(id){
@@ -215,6 +230,7 @@
       },
       //显示新生成的图片
       change_is_new_img(){
+        this.is_true_img = true;
         this.is_new_img = true;
         this.bg_color = 'yellow';
         this.$nextTick(()=>{
@@ -224,9 +240,16 @@
       back_login(){
         this.$router.push({path:'/login'})
       },
+      back_choose_person(){
+        this.is_new_img = false;
+        this.bg_color = this.new_image.color;
+      },
+      goto_fenxiang(){
+        this.$router.push({path:'/newImg'})
+      },
       create_img(){
         html2canvas(this.$refs.box,{
-          backgroundColor: null,
+          backgroundColor: this.new_image.color,
           useCORS: true // 如果截图的内容里有图片,可能会有跨域的情况,加上这个参数,解决文件跨域问题
         }).then((canvas) => {
           // this.imgUrl = URL.createObjectURL(this.base64ToBlob(canvas.toDataURL()))
@@ -234,6 +257,25 @@
           this.is_true_img = false
         })
       },
+      base64ToBlob: function (code) {
+        let parts = code.split(';base64,');
+        let contentType = parts[0].split(':')[1];
+        let raw = window.atob(parts[1]);
+        let rawLength = raw.length;
+
+        let uInt8Array = new Uint8Array(rawLength);
+
+        for (let i = 0; i < rawLength; ++i) {
+          uInt8Array[i] = raw.charCodeAt(i)
+        }
+        return new Blob([uInt8Array], {type: contentType})
+      },
+      // imgClick() {
+      //   var alink = document.createElement ( 'a' );
+      //   alink.href = this.imgUrl;
+      //   alink.download = 'pic'; // 图片名
+      //   alink.click ()
+      // }
     }
   }
 </script>
@@ -317,6 +359,7 @@
   }
   .choose_item img{
     width: 80%;
+    height: 70%;
   }
   .choose_item div{
     font-family: FF-DIN-Round-Pro-Bold;
@@ -340,7 +383,18 @@
     width: 6rem;
     height: 2.8rem;
     line-height: 2.8rem;
-    border-radius: 1.4rem;
+    border-radius: 2.8rem;
+    background-color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: SourceHanSansSC-Bold;
+  }
+  .choose_button2{
+    border: 3px solid #000;
+    width: 5.5rem;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    border-radius: 2.8rem;
     background-color: #fff;
     text-align: center;
     font-size: 1.5rem;
@@ -362,6 +416,7 @@
     /*border-bottom: none;*/
     width: 70vw;
     margin: 0 auto -4px;
+    padding-bottom: 1vw;
   }
   .new_img_title div{
     text-align: center;
@@ -371,7 +426,7 @@
   .new_image{
     position: relative;
     width: 70vw;
-    height: 85vw;
+    height: 90vw;
     border: 4px solid #000;
     margin: 0 auto;
   }
@@ -421,7 +476,7 @@
     width: 70vw;
     margin:  0 auto;
     justify-content: space-between;
-    padding-bottom: 8vw;
+    padding-bottom: 5vw;
   }
   .footer_first{
     display: flex;
@@ -442,6 +497,7 @@
     width: 14vw;
     height: 14vw;
     margin-top: 1.5vw;
+    margin-left: .5vw;
   }
   .footer_second{
     display: flex;

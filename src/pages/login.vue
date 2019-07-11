@@ -63,11 +63,14 @@
       }
     },
     mounted(){
-      this.number = this.$route.query.num;
+      // this.number = this.$route.query.num;
+      this.number = localStorage.getItem('number')
     },
     methods:{
       goto_game(){
-        console.log(this.my_name,this.my_work);
+        // console.log(this.my_name,this.my_work);
+        localStorage.setItem('my_name',this.my_name);
+        localStorage.setItem('my_work',this.my_work);
         this.$router.push({path:'/game',query:{num:this.number,my_name:this.my_name,my_work:this.my_work}})
       },
       goto_back(){
@@ -87,9 +90,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: calc(100% - 2.4rem);
-    height: calc(100% - 2.4rem);
-    padding: 1.2rem
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    padding: 1rem
   }
   .header_logo_img{
     display: block;
@@ -154,7 +157,7 @@
     width: 6rem;
     height: 2.8rem;
     line-height: 2.8rem;
-    border-radius: 1.4rem;
+    border-radius: 2.8rem;
     /*margin: 0 calc(50% - 4rem) 1rem;*/
     background-color: #fff;
     text-align: center;
@@ -173,7 +176,7 @@
     width: 100%
   }
   .start_game{
-    font-size: 9.5vw;
+    font-size: 10vw;
     font-family: FF-DIN-Round-Pro-Medium;
   }
   .shaoshao{
@@ -182,17 +185,20 @@
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
-    width: 21vw;
+    width: 19vw;
+    height: 19vw;
+    margin-top: 1.5vw;
   }
   .footer_second{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%
+    width: 100%;
+    margin-top: -0.5rem;
   }
   .tuoluoguai{
     /*margin-right: .2vw;*/
-    font-size: 6.6vw;
+    font-size: 6.8vw;
     font-family: SourceHanSansSC-Bold;
   }
   .wojiushi{
