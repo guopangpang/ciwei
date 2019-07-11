@@ -7,9 +7,11 @@ import newImg from '@/pages/newImg'
 import imgadd from '@/pages/imgadd'
 
 
+
 Vue.use(Router);
 
-export default new Router({
+
+const router =  new Router({
   routes: [
     {
       path: '/',
@@ -37,4 +39,18 @@ export default new Router({
       component: imgadd
     }
   ]
-})
+});
+
+let toURL = null;
+router.beforeEach((to, from, next) => {
+  if (toURL === to.path) {
+    next()
+  }
+  if (to.path !== from.path) {
+    toURL = to.path;
+    router.replace(to.path);
+    next()
+  }
+});
+
+export default router
