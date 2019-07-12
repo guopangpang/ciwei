@@ -54,16 +54,20 @@
     </div>
 
     <!--按钮-->
-    <div v-if="is_new_img" style="position: fixed;bottom: 3vw">
+    <div v-if="is_new_img" style="position: fixed;bottom: -1vw">
       <div style="display: flex;justify-content: space-between;width: 75vw;margin: 5vw 12.5vw">
         <div class="choose_button2" @click="back_choose_person()">返回</div>
-        <div class="choose_button2">
-          <a :href="imgUrl" download="logo.png" style="color: #000000;text-decoration:none;">长按</a>
+        <div class="choose_button2" @click="changan = !changan">长按
+          <!--<a :href="imgUrl" download="logo.png" style="color: #000000;text-decoration:none;">长按</a>-->
         </div>
         <div class="choose_button2" @click="goto_fenxiang()">分享</div>
       </div>
     </div>
 
+    <div style="position: fixed;top:0;left: 0; display: flex;justify-content: center;align-items: center;
+            width: 100vw;height: 100vh;background-color: rgba(0,0,0,0.6)" v-show="changan" @click="changan = !changan">
+      <img :src="imgUrl" style="width: 85vw;">
+    </div>
     <!--图片生成-->
     <div v-if="is_new_img" class="third_container" ref="box">
       <!--图片绘制-->
@@ -107,7 +111,7 @@
               <div class="tuoluoguai">{{new_image.name}}</div>
               <div class="wojiushi">
                 <div style="">角色 [你心中的超级英雄]</div>
-                <div style="margin-top: -0.2rem">惊喜 [性格彩蛋最终显示]]</div>
+                <div style="margin-top: -0.2rem">惊喜 [性格彩蛋最终显示]</div>
               </div>
             </div>
           </div>
@@ -115,7 +119,7 @@
         </div>
       </div>
       <!--生成图片显示-->
-      <img :src="imgUrl" style="width: 75vw;margin-top: 5vw;box-shadow:0 0 10px #000" v-show="!is_true_img">
+      <img :src="imgUrl" style="width: 75vw;margin-top: 5vw;box-shadow:0 0 2px #ededed" v-show="!is_true_img">
     </div>
 
   </div>
@@ -184,6 +188,7 @@
         ],//背景图列表
         color_list:[{color:'#fff100'},{color:'#ffffff'},{color:'#00b27a'},{color:'#1295d8'},{color:'#f87089'},{color:'#d79133'},{color:'#faedbc'}],//背景色列表
         new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},//生成图片需要的信息
+        changan:false,
         isFirst:true,
 
         is_new_img:false,//控制显示选择图片选择显示
@@ -306,8 +311,8 @@
   .create_img{
     position: relative;
     width: 86vw;
-    height: 105vw;
-    border: 4px solid #000;
+    height: 110vw;
+    border: 5px solid #000;
   }
   .back_img{
     display: flex;
@@ -355,16 +360,17 @@
     position: absolute;
     width: 90%;
     left: 5%;
-    bottom: 0
+    bottom: 4vw
   }
   .choose_list{
     display:flex;
     width: 86vw;
+    height: 26vw;
     overflow: auto;
-    margin: 1rem 0;
+    margin: 2.5vw 0 0 0;
   }
   .choose_item{
-    width: 23%;
+    width: 22%;
     flex: none;
     text-align: center;
   }
@@ -390,7 +396,7 @@
     text-align: center;
   }
   .choose_button{
-    border: 3px solid #000;
+    border: 5px solid #000;
     width: 6rem;
     height: 2.8rem;
     line-height: 2.8rem;
@@ -401,7 +407,7 @@
     font-family: SourceHanSansSC-Bold;
   }
   .choose_button2{
-    border: 3px solid #000;
+    border: 5px solid #000;
     width: 5.5rem;
     height: 2.8rem;
     line-height: 2.8rem;
@@ -440,18 +446,6 @@
     height: 90vw;
     border: 4px solid #000;
     margin: 0 auto;
-  }
-  .greate_img_bg{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%
-  }
-  .greate_img_person{
-    position: absolute;
-    width: 90%;
-    left: 5%;
-    bottom: 0
   }
   .title_right_left{
     position: absolute;

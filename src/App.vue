@@ -1,15 +1,14 @@
 <template>
-  <div id="app">
+  <div id="app" @click="paly_music">
     <!--背景音乐-->
-    <audio autoplay="autoplay"
-           preload="auto" ref="MusicPlay"
-           :src="mus" v-show="music_play">
+    <audio id="MusicPlay" loop="loop"
+           src="/static/music/2177691016.mp3" v-show="music_play">
     </audio>
-    <div @click="paly_music">222</div>
+    <!--<div @click="paly_music">222</div>-->
 
     <!--按钮音效-->
     <!--<audio src="" id="buttonAudio"></audio>-->
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -19,7 +18,7 @@ export default {
   data(){
     return{
       music_play:true,
-      mus: require("./music/2177691016.mp3")
+      mus: ''
     }
   },
   mounted(){
@@ -27,7 +26,8 @@ export default {
   },
   methods:{
     paly_music(){
-      this.$refs.MusicPlay.play();
+      var audio = document.getElementById("MusicPlay");
+      audio.play();
     }
   }
 }

@@ -5,7 +5,7 @@
         <img src="../src/logo.png">
         <img src="../src/up.png">
       </div>
-      <img src="../src/person/1.png" style="width: 70vw">
+      <img src="../src/person/1.png" style="width: 85vw">
       <div class="footer_info">
         <div class="my_tuoluo">分享我的陀螺怪专属海报</div>
         <div style="width: 100%">
@@ -76,7 +76,7 @@
   .container{
     width: 100vw;
     height: 100vh;
-    background-color: yellow;
+    background-color: #fff100;
   }
   .second_container{
     display: flex;

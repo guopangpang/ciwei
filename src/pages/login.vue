@@ -16,10 +16,10 @@
         </div>
         <div class="input_my_ifo">
           <div class="input_body">
-            <span class="input_word">我的昵称</span>
-            <input placeholder="昵称" v-model="my_name"/>
-            <span class="input_word">我的职位</span>
-            <input  placeholder="设计师" v-model="my_work"/>
+            <span class="input_word_name">我的昵称</span>
+            <input class="input_word" placeholder="昵称" v-model="my_name" />
+            <span class="input_word_name">我的职位</span>
+            <input class="input_word" placeholder="设计师" v-model="my_work"/>
           </div>
         </div>
         <div style="display: flex;justify-content: space-between;width: 70%;margin: 0 15% 1rem">
@@ -84,29 +84,30 @@
   .container{
     width: 100vw;
     height: 100vh;
-    background-color: yellow;
+    background-color: #fff100;
   }
   .second_container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: calc(100% - 2rem);
-    height: calc(100% - 2rem);
-    padding: 1rem
+    /*justify-content: space-between;*/
+    width: calc(100% - 14vw);
+    height: calc(100% - 14vw);
+    padding: 5vw 7vw
   }
   .header_logo_img{
     display: block;
-    width: 100%;
+    width: 86vw
   }
   .choose{
-    margin: 1.2rem 0 0 0;
-    border: 4px solid #000;
+    margin: .3rem 0 0 0;
+    border: 5px solid #000;
+    /*height: 65vh;*/
   }
   .title{
     display: flex;
     justify-content: space-between;
     width: calc(100% - 1.6rem);
-    margin: .8rem;
+    margin: .4rem .8rem 0;
   }
   .title_left{}
   .game_master{
@@ -118,7 +119,8 @@
   .title_right{}
   .number{
     font-family: FF-DIN-Round-Pro-Medium;
-    font-size: 1.8rem;
+    font-size: 2.8rem;
+    margin: -.4rem 0 -.4rem 0;
   }
   .number_logo{
     text-align: right;
@@ -131,9 +133,9 @@
     justify-content: center;
     background: url("../src/my_info.png") center no-repeat ;
     background-size: 100%;
-    width: 60%;
-    height: 280px;
-    margin: -15px 20% 10px;
+    width: 62vw;
+    height: 77vw;
+    margin: -2vw auto 1.5vw;
     text-align: center;
   }
   .input_body{
@@ -148,12 +150,16 @@
     padding-left: 3px;
     width: 90%;
   }
+  .input_word_name{
+    font-size:.9rem;
+    font-family: SourceHanSansSC-Bold;
+  }
   .input_word{
-    font-size: .9rem;
+    font-size: .8rem;
     font-family: SourceHanSansSC-Bold;
   }
   .create_button{
-    border: 3px solid #000;
+    border: 5px solid #000;
     width: 6rem;
     height: 2.8rem;
     line-height: 2.8rem;
@@ -185,8 +191,8 @@
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
-    width: 19vw;
-    height: 19vw;
+    width: 15vw;
+    height: 15vw;
     margin-top: 1.5vw;
   }
   .footer_second{

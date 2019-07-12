@@ -6,7 +6,7 @@
         <div class="title">
           <div class="title_left">
             <div class="game_master">GAME</div>
-            <div class="game_master" style="margin-top: -0.4rem">MASTER</div>
+            <div class="game_master" style="margin-top: -0.2rem">MASTER</div>
             <div class="game_master_ch">游戏大咖</div>
           </div>
           <div class="title_right">
@@ -83,7 +83,7 @@
         },
         goto_login(){
           // this.clickButton();
-          // this.$router.push({path:'/login',query:{num:this.number}})
+          this.$router.push({path:'/login',query:{num:this.number}})
         }
       }
     }
@@ -93,29 +93,30 @@
   .container{
     width: 100vw;
     height: 100vh;
-    background-color: yellow;
+    background-color: #fff100;
   }
   .second_container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: calc(100% - 2rem);
-    height: calc(100% - 2rem);
-    padding: 1rem
+    /*justify-content: space-between;*/
+    width: calc(100% - 14vw);
+    height: calc(100% - 14vw);
+    padding: 5vw 7vw
   }
   .header_logo_img{
     display: block;
-    width: 100%;
+    width: 86vw
   }
   .choose{
+    /*height: 65vh;*/
     margin: .3rem 0 0 0;
-    border: 4px solid #000;
+    border: 5px solid #000;
   }
   .title{
     display: flex;
     justify-content: space-between;
     width: calc(100% - 1.6rem);
-    margin: .8rem .8rem 0;
+    margin: .4rem .8rem 0;
   }
   .title_left{}
   .game_master{
@@ -128,7 +129,7 @@
   .number{
     font-family: FF-DIN-Round-Pro-Medium;
     font-size: 2.8rem;
-    margin: -.8rem 0 -.4rem 0;
+    margin: -.4rem 0 -.4rem 0;
   }
   .number_logo{
     text-align: right;
@@ -139,16 +140,16 @@
     text-align: center;
   }
   .bianzu img{
-    margin: .6rem 0 0 0;
-    width: 72%;
+    margin: 3vw 0 0 0;
+    width: 65vw;
   }
   .create_button{
-    border: 3px solid #000;
+    border: 5px solid #000;
     width: 8rem;
     height: 2.8rem;
     line-height: 2.8rem;
     border-radius: 2.8rem;
-    margin: 0 calc(50% - 4rem) 1rem;
+    margin:0 auto .8rem;
     background-color: #fff;
     text-align: center;
     font-size: 1.5rem;
@@ -175,8 +176,8 @@
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
-    width: 19vw;
-    height: 19vw;
+    width: 15vw;
+    height: 15vw;
     margin-top: 1.5vw;
   }
   .footer_second{
