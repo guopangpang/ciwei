@@ -1,5 +1,6 @@
 <template>
   <div :style="{backgroundColor: bg_color}" class="container">
+    <!--图片组件选择-->
     <div v-if="!is_new_img" class="second_container">
       <div class="create_img" :style="{backgroundColor: 'yellow'}">
         <div class="back_img">
@@ -11,6 +12,7 @@
           <img src="../src/next.png" @click="change_is_new_img()">
         </div>
 
+        <!--图片显示-->
         <div style="position: relative;height: 100%;width: 100%">
           <img :src="show_bg" class="greate_img_bg">
           <img :src="show_img" class="greate_img_person">
@@ -19,6 +21,7 @@
         </div>
       </div>
 
+      <!--选择列表-->
       <div>
         <div v-if="show_choose_person" class="choose_list">
           <div class="choose_item" v-for="(item,index) in person_list" :key="index" @click="change_person(index)">
@@ -42,6 +45,7 @@
         </div>
       </div>
 
+      <!--按钮-->
       <div style="display: flex;justify-content: space-between">
         <div @click="choose_person()" :style="{backgroundColor:show_choose_person?'yellow':'#fff'}" class="choose_button">人物</div>
         <div @click="choose_bg()" :style="{backgroundColor:show_choose_gd?'yellow':'#fff'}" class="choose_button">背景</div>
@@ -49,6 +53,7 @@
       </div>
     </div>
 
+    <!--按钮-->
     <div v-if="is_new_img" style="position: fixed;bottom: 3vw">
       <div style="display: flex;justify-content: space-between;width: 75vw;margin: 5vw 12.5vw">
         <div class="choose_button2" @click="back_choose_person()">返回</div>
@@ -59,7 +64,9 @@
       </div>
     </div>
 
+    <!--图片生成-->
     <div v-if="is_new_img" class="third_container" ref="box">
+      <!--图片绘制-->
       <div :style="{backgroundColor: new_image.color}" class="new_img_bg" ref="box" v-show="is_true_img">
         <div style="padding: 5vw 0 2vw">
           <div class="new_img_title">
@@ -107,6 +114,7 @@
           <img src="../src/test/chanquan.png" class="erweima_img">
         </div>
       </div>
+      <!--生成图片显示-->
       <img :src="imgUrl" style="width: 75vw;margin-top: 5vw;box-shadow:0 0 10px #000" v-show="!is_true_img">
     </div>
 
@@ -119,15 +127,15 @@
     name: 'game',
     data () {
       return {
-        my_name:'',
-        my_work:'',
-        show_img:'',
-        show_bg:require('../src/bg/bg1.png'),
-        bg_color:'',
-        number:2,
-        show_choose_person:true,
-        show_choose_gd:false,
-        show_choose_bg_color:false,
+        my_name:'',//输入的名称
+        my_work:'',//输入的工作
+        show_img:'',//人物图片
+        show_bg:require('../src/bg/bg1.png'),//背景图片
+        bg_color:'',//背景颜色
+        number:2,//选择logo编号
+        show_choose_person:true,//人物选择栏
+        show_choose_gd:false,//背景图选择栏
+        show_choose_bg_color:false,//背景色选择栏
         person_list:[{img:require('../src/person/1.png'),name:'刺猬陀螺怪',im:'我是 [佛系品牌设计师] ',able:'擅长 [吹牛卖稿谈客户]'},
           {img:require('../src/person/2.png'),name:'刺猬陀螺怪',im:'我是 [软萌品牌设计师]',able:'擅长 [沟通交流一稿过]'},
           {img:require('../src/person/3.png'),name:'刺猬陀螺怪',im:'我是 [肥宅品牌设计师]',able:'擅长 [节约时尚国际范]'},
@@ -148,7 +156,7 @@
           {img:require('../src/person/18.png'),name:'噜当陀螺怪',im:'我是 [暖男品牌设计师] ',able:'擅长 [卖萌嘟嘴剪刀手]'},
           {img:require('../src/person/19.png'),name:'斯斯陀螺怪',im:'我是 [硬核品牌设计师]',able:'擅长 [生活工作两不误]'},
           {img:require('../src/person/20.png'),name:'扁壶陀螺怪',im:'我是 [精分品牌设计师]',able:'擅长 [五彩斑斓的黑色]'},
-        ],
+        ],//人物列表
         bg_list:[{bg:require('../src/bg/bg3.png')},
           {bg:require('../src/bg/bg1.png')},
           {bg:require('../src/bg/bg2.png')},
@@ -173,20 +181,22 @@
           {bg:require('../src/bg/bg22.png')},
           {bg:require('../src/bg/bg23.png')},
           {bg:require('../src/bg/bg24.png')},
-        ],
-        color_list:[{color:'yellow'},{color:'#fff'},{color:'#00FFFF'},{color:'pink'},{color:'red'}],
-        new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},
+        ],//背景图列表
+        color_list:[{color:'#fff100'},{color:'#ffffff'},{color:'#00b27a'},{color:'#1295d8'},{color:'#f87089'},{color:'#d79133'},{color:'#faedbc'}],//背景色列表
+        new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},//生成图片需要的信息
+        isFirst:true,
 
-        is_new_img:false,
-        imgUrl:'',
-        is_true_img:true
+        is_new_img:false,//控制显示选择图片选择显示
+        imgUrl:'',//生成图片
+        is_true_img:true//真正图片显示
       }
     },
     mounted(){
+      //设定页面首次显示默认值
       this.show_img = this.person_list[0].img;
       this.show_bg = this.bg_list[0].bg;
       this.bg_color = this.color_list[0].color;
-
+      //设定生成图片信息
       this.new_image.person = this.person_list[0].img;
       this.new_image.name = this.person_list[0].name;
       this.new_image.able = this.person_list[0].able;
@@ -198,6 +208,7 @@
       this.my_work = localStorage.getItem('my_work')
     },
     methods:{
+      //选择人物
       change_person(id){
         this.show_img = this.person_list[id].img;
         this.new_image.person = this.person_list[id].img;
@@ -205,24 +216,29 @@
         this.new_image.able = this.person_list[id].able;
         this.new_image.im = this.person_list[id].im;
       },
+      //选择背景图片
       change_bg(id){
         this.show_bg = this.bg_list[id].bg;
         this.new_image.bg = this.bg_list[id].bg;
       },
+      //选择背景色
       change_color(id){
         this.bg_color = this.color_list[id].color;
         this.new_image.color = this.color_list[id].color;
       },
+      //显示人物选择栏
       choose_person(){
         this.show_choose_person = true;
         this.show_choose_gd = false;
         this.show_choose_bg_color = false
       },
+      //显示背景图片选择栏
       choose_bg(){
         this.show_choose_person = false;
         this.show_choose_gd = true;
         this.show_choose_bg_color = false
       },
+      //显示背景色选择栏
       choose_bg_color(){
         this.show_choose_person = false;
         this.show_choose_gd = false;
@@ -237,6 +253,7 @@
           this.create_img()
         });
       },
+      //返回login页面
       back_login(){
         this.$router.push({path:'/login'})
       },
@@ -270,12 +287,6 @@
         }
         return new Blob([uInt8Array], {type: contentType})
       },
-      // imgClick() {
-      //   var alink = document.createElement ( 'a' );
-      //   alink.href = this.imgUrl;
-      //   alink.download = 'pic'; // 图片名
-      //   alink.click ()
-      // }
     }
   }
 </script>

@@ -20,7 +20,7 @@
           <img :src="show_bianzu3" @click="bianzu3">
         </div>
         <div style="margin: .1rem 0; font-family: SourceHanSansSC-Bold;font-size: .8rem;text-align: center">选择我的段位</div>
-        <div class="create_button" @click="goto_login()">开始生成</div>
+        <div clickMusic='true' class="create_button" @click="goto_login()">开始生成</div>
       </div>
       <div class="footer_info">
         <div style="width: 100%">
@@ -82,7 +82,8 @@
           this.number = 3
         },
         goto_login(){
-          this.$router.push({path:'/login',query:{num:this.number}})
+          // this.clickButton();
+          // this.$router.push({path:'/login',query:{num:this.number}})
         }
       }
     }
@@ -107,7 +108,7 @@
     width: 100%;
   }
   .choose{
-    margin: 1rem 0 0 0;
+    margin: .3rem 0 0 0;
     border: 4px solid #000;
   }
   .title{
@@ -126,7 +127,8 @@
   .title_right{}
   .number{
     font-family: FF-DIN-Round-Pro-Medium;
-    font-size: 1.8rem;
+    font-size: 2.8rem;
+    margin: -.8rem 0 -.4rem 0;
   }
   .number_logo{
     text-align: right;
