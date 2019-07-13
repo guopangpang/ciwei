@@ -5,6 +5,7 @@ import login from '@/pages/login'
 import game from '@/pages/game'
 import newImg from '@/pages/newImg'
 import imgadd from '@/pages/imgadd'
+import loading_page from '@/pages/loading_page'
 
 
 
@@ -13,6 +14,11 @@ Vue.use(Router);
 
 const router =  new Router({
   routes: [
+    {
+      path: '/loading_page',
+      name: 'loading_page',
+      component: loading_page
+    },
     {
       path: '/chooselogo',
       name: 'chooselogo',

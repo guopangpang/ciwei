@@ -3,28 +3,29 @@
     <div class="second_container">
       <div class="fenxiang_tiile">
         <img src="../src/logo.png">
-        <img src="../src/up.png">
+        <img src="../src/up.gif">
       </div>
-      <img src="../src/person/1.png" style="width: 85vw">
-      <div class="footer_info">
-        <div class="my_tuoluo">分享我的陀螺怪专属海报</div>
-        <div style="width: 100%">
-          <div class="footer_first">
-            <div class="start_game">START GAME</div>
-            <div class="shaoshao">
-              <div style="margin-top: .3rem">扫一扫</div>
-              <div style="margin-top: -0.4rem">变怪兽</div>
-            </div>
-          </div>
-          <div class="footer_second">
-            <div class="tuoluoguai">我的陀螺怪</div>
-            <div class="wojiushi">
-              <div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>
-              <div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <img src="../src/person/1.png" style="width: 80vw">
+      <img src="../src/foot_wor_fenxiang.png" style="width: 100%;height: 30vw">
+      <!--<div class="footer_info">-->
+        <!--<div class="my_tuoluo">分享我的陀螺怪专属海报</div>-->
+        <!--<div style="width: 100%">-->
+          <!--<div class="footer_first">-->
+            <!--<div class="start_game">START GAME</div>-->
+            <!--<div class="shaoshao">-->
+              <!--<div style="margin-top: .3rem">扫一扫</div>-->
+              <!--<div style="margin-top: -0.4rem">变怪兽</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="footer_second">-->
+            <!--<div class="tuoluoguai">我的陀螺怪</div>-->
+            <!--<div class="wojiushi">-->
+              <!--<div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>-->
+              <!--<div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
   </div>
 </template>

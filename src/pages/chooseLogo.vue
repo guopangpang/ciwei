@@ -23,22 +23,23 @@
         <div clickMusic='true' class="create_button" @click="goto_login()">开始生成</div>
       </div>
       <div class="footer_info">
-        <div style="width: 100%">
-          <div class="footer_first">
-            <div class="start_game">START GAME</div>
-            <div class="shaoshao">
-              <div style="margin-top: .3rem">扫一扫</div>
-              <div style="margin-top: -0.4rem">变怪兽</div>
-            </div>
-          </div>
-          <div class="footer_second">
-            <div class="tuoluoguai">我的陀螺怪</div>
-            <div class="wojiushi">
-              <div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>
-              <div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>
-            </div>
-          </div>
-        </div>
+        <!--<div style="width: 100%">-->
+          <!--<div class="footer_first">-->
+            <!--<div class="start_game">START GAME</div>-->
+            <!--<div class="shaoshao">-->
+              <!--<div style="margin-top: .3rem">扫一扫</div>-->
+              <!--<div style="margin-top: -0.4rem">变怪兽</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="footer_second">-->
+            <!--<div class="tuoluoguai">我的陀螺怪</div>-->
+            <!--<div class="wojiushi">-->
+              <!--<div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>-->
+              <!--<div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <img src="../src/foot_word.png" style="height: 100%">
         <img src="../src/test/chanquan.png" class="erweima_img">
       </div>
     </div>
@@ -57,7 +58,7 @@
         }
       },
       mounted(){
-
+        localStorage.setItem('number',1);
       },
       methods:{
         bianzu1(){
@@ -98,19 +99,24 @@
   .second_container{
     display: flex;
     flex-direction: column;
-    /*justify-content: space-between;*/
+    justify-content: space-around;
     width: calc(100% - 14vw);
-    height: calc(100% - 14vw);
+    height: calc(100% - 10vw);
     padding: 5vw 7vw
   }
   .header_logo_img{
     display: block;
-    width: 86vw
+    width: 86vw;
+    flex: .1 0 auto;
   }
   .choose{
     /*height: 65vh;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     margin: .3rem 0 0 0;
     border: 5px solid #000;
+    flex: 0.5 1 auto;
   }
   .title{
     display: flex;
@@ -158,7 +164,10 @@
   .footer_info{
     display: flex;
     width: 100%;
+    margin-top: 1vw;
     justify-content: space-between;
+    height: 16.3vw;
+    /*flex: .2 0 auto;*/
   }
   .footer_first{
     display: flex;
@@ -176,9 +185,8 @@
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
-    width: 15vw;
-    height: 15vw;
-    margin-top: 1.5vw;
+    height: 100%
+    /*margin-top: 1.5vw;*/
   }
   .footer_second{
     display: flex;
@@ -196,4 +204,5 @@
     font-size: 2.6vw;
     font-family: SourceHanSansSC-Bold;
   }
+
 </style>

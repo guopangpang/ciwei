@@ -2,7 +2,7 @@
   <div id="app" @click="paly_music">
     <!--背景音乐-->
     <audio id="MusicPlay" loop="loop"
-           src="/static/music/2177691016.mp3" v-show="music_play">
+           src="/static/music/TODDLER_1525154466.wav" v-show="music_play">
     </audio>
     <!--<div @click="paly_music">222</div>-->
 

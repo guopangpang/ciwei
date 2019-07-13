@@ -22,29 +22,30 @@
             <input class="input_word" placeholder="设计师" v-model="my_work"/>
           </div>
         </div>
-        <div style="display: flex;justify-content: space-between;width: 70%;margin: 0 15% 1rem">
+        <div style="display: flex;justify-content: space-between;width: 78%;margin: 0 11% 1rem">
           <div class="create_button" @click="goto_back()">返回</div>
           <div class="create_button" @click="goto_game()">完成</div>
         </div>
 
       </div>
       <div class="footer_info">
-        <div style="width: 100%">
-          <div class="footer_first">
-            <div class="start_game">START GAME</div>
-            <div class="shaoshao">
-              <div style="margin-top: .3rem">扫一扫</div>
-              <div style="margin-top: -0.2rem">变怪兽</div>
-            </div>
-          </div>
-          <div class="footer_second">
-            <div class="tuoluoguai">我的陀螺怪</div>
-            <div class="wojiushi">
-              <div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>
-              <div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>
-            </div>
-          </div>
-        </div>
+        <!--<div style="width: 100%">-->
+          <!--<div class="footer_first">-->
+            <!--<div class="start_game">START GAME</div>-->
+            <!--<div class="shaoshao">-->
+              <!--<div style="margin-top: .3rem">扫一扫</div>-->
+              <!--<div style="margin-top: -0.2rem">变怪兽</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="footer_second">-->
+            <!--<div class="tuoluoguai">我的陀螺怪</div>-->
+            <!--<div class="wojiushi">-->
+              <!--<div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>-->
+              <!--<div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <img src="../src/foot_word.png" style="height: 100%">
         <img src="../src/test/chanquan.png" class="erweima_img">
       </div>
     </div>
@@ -69,8 +70,18 @@
     methods:{
       goto_game(){
         // console.log(this.my_name,this.my_work);
-        localStorage.setItem('my_name',this.my_name);
-        localStorage.setItem('my_work',this.my_work);
+        if(this.my_name === ''){
+          localStorage.setItem('my_name','陀螺怪');
+        }else{
+          localStorage.setItem('my_name',this.my_name);
+        }
+
+        if(this.my_work === ''){
+          localStorage.setItem('my_work','设计师');
+        }else{
+          localStorage.setItem('my_work',this.my_work);
+        }
+
         this.$router.push({path:'/game',query:{num:this.number,my_name:this.my_name,my_work:this.my_work}})
       },
       goto_back(){
@@ -89,18 +100,23 @@
   .second_container{
     display: flex;
     flex-direction: column;
-    /*justify-content: space-between;*/
+    justify-content: space-between;
     width: calc(100% - 14vw);
-    height: calc(100% - 14vw);
+    height: calc(100% - 10vw);
     padding: 5vw 7vw
   }
   .header_logo_img{
     display: block;
-    width: 86vw
+    width: 86vw;
+    flex: .1 1 auto;
   }
   .choose{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     margin: .3rem 0 0 0;
     border: 5px solid #000;
+    flex: .5 1 auto;
     /*height: 65vh;*/
   }
   .title{
@@ -173,6 +189,8 @@
   .footer_info{
     display: flex;
     width: 100%;
+    height: 16.3vw;
+    margin-top: 1vw;
     justify-content: space-between;
   }
   .footer_first{
@@ -191,9 +209,9 @@
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
-    width: 15vw;
-    height: 15vw;
-    margin-top: 1.5vw;
+    /*width: 16.3vw;*/
+    height: 100%
+    /*margin-top: 1.5vw;*/
   }
   .footer_second{
     display: flex;

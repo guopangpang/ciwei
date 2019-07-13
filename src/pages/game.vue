@@ -2,7 +2,7 @@
   <div :style="{backgroundColor: bg_color}" class="container">
     <!--图片组件选择-->
     <div v-if="!is_new_img" class="second_container">
-      <div class="create_img" :style="{backgroundColor: 'yellow'}">
+      <div class="create_img" :style="{backgroundColor: '#fff100'}">
         <div class="back_img">
           <img src="../src/back.png" @click="back_login()">
           <div>返回编辑</div>
@@ -16,13 +16,13 @@
         <div style="position: relative;height: 100%;width: 100%">
           <img :src="show_bg" class="greate_img_bg">
           <img :src="show_img" class="greate_img_person">
-          <div style="position: absolute;z-index: 5000;top: 18vw;left:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">{{my_name}}／是我</div>
-          <div style="position: absolute;z-index: 5000;top: 18vw;right:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">我是／{{my_work}}</div>
+          <div style="position: absolute;z-index: 5000;top: 18vw;left:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;">{{my_name}}／是我</div>
+          <div style="position: absolute;z-index: 5000;top: 18vw;right:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;">我是／{{my_work}}</div>
         </div>
       </div>
 
       <!--选择列表-->
-      <div>
+      <div style="flex: .1 1 auto;display: flex;align-items: center;">
         <div v-if="show_choose_person" class="choose_list">
           <div class="choose_item" v-for="(item,index) in person_list" :key="index" @click="change_person(index)">
             <img :src="item.img">
@@ -47,14 +47,14 @@
 
       <!--按钮-->
       <div style="display: flex;justify-content: space-between">
-        <div @click="choose_person()" :style="{backgroundColor:show_choose_person?'yellow':'#fff'}" class="choose_button">人物</div>
-        <div @click="choose_bg()" :style="{backgroundColor:show_choose_gd?'yellow':'#fff'}" class="choose_button">背景</div>
-        <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'yellow':'#fff'}" class="choose_button">颜色</div>
+        <div @click="choose_person()" :style="{backgroundColor:show_choose_person?'#fff100':'#fff'}" class="choose_button">人物</div>
+        <div @click="choose_bg()" :style="{backgroundColor:show_choose_gd?'#fff100':'#fff'}" class="choose_button">背景</div>
+        <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'#fff100':'#fff'}" class="choose_button">颜色</div>
       </div>
     </div>
 
     <!--按钮-->
-    <div v-if="is_new_img" style="position: fixed;bottom: -1vw">
+    <div v-if="is_new_img" style="position: fixed;bottom: 1vw">
       <div style="display: flex;justify-content: space-between;width: 75vw;margin: 5vw 12.5vw">
         <div class="choose_button2" @click="back_choose_person()">返回</div>
         <div class="choose_button2" @click="changan = !changan">长按
@@ -65,7 +65,7 @@
     </div>
 
     <div style="position: fixed;top:0;left: 0; display: flex;justify-content: center;align-items: center;
-            width: 100vw;height: 100vh;background-color: rgba(0,0,0,0.6)" v-show="changan" @click="changan = !changan">
+            width: 100vw;height: 100vh;background-color: rgba(0,0,0,0.6)" v-show="changan" @touchstart="changan_touchstart()"  @touchend="changeChangan()">
       <img :src="imgUrl" style="width: 85vw;">
     </div>
     <!--图片生成-->
@@ -93,8 +93,8 @@
               <img :src="new_image.bg" class="greate_img_bg">
               <img :src="new_image.person" class="greate_img_person">
               <img class="rigjt_logo" src="../src/logo.png" style="position: absolute;z-index: 5000;width: 8vw;bottom: 8vw;right: 0;transform:rotate(90deg)">
-              <div style="position: absolute;z-index: 5000;top: 18vw;left:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">{{my_name}}／是我</div>
-              <div style="position: absolute;z-index: 5000;top: 18vw;right:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: 12px">我是／{{my_work}}</div>
+              <div style="position: absolute;z-index: 5000;top: 18vw;left:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;">{{my_name}}／是我</div>
+              <div style="position: absolute;z-index: 5000;top: 18vw;right:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;">我是／{{my_work}}</div>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@
             <div class="footer_second">
               <div class="tuoluoguai">{{new_image.name}}</div>
               <div class="wojiushi">
-                <div style="">角色 [你心中的超级英雄]</div>
+                <div style="margin-top: -0.2rem">角色 [你心中的超级英雄]</div>
                 <div style="margin-top: -0.2rem">惊喜 [性格彩蛋最终显示]</div>
               </div>
             </div>
@@ -119,7 +119,7 @@
         </div>
       </div>
       <!--生成图片显示-->
-      <img :src="imgUrl" style="width: 75vw;margin-top: 5vw;box-shadow:0 0 2px #ededed" v-show="!is_true_img">
+      <img :src="imgUrl" style="width: 75vw;margin-top: 10vw;box-shadow:0 2px 8px 0 rgba(47,45,2,0.16)" v-show="!is_true_img">
     </div>
 
   </div>
@@ -190,6 +190,7 @@
         new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},//生成图片需要的信息
         changan:false,
         isFirst:true,
+        start_time:'',
 
         is_new_img:false,//控制显示选择图片选择显示
         imgUrl:'',//生成图片
@@ -215,19 +216,109 @@
     methods:{
       //选择人物
       change_person(id){
+        if(this.isFirst){
+          this.duiying(id);
+        }
         this.show_img = this.person_list[id].img;
         this.new_image.person = this.person_list[id].img;
         this.new_image.name = this.person_list[id].name;
         this.new_image.able = this.person_list[id].able;
         this.new_image.im = this.person_list[id].im;
       },
+      duiying(id){
+        switch(id){
+          case 0:
+            this.show_bg = this.bg_list[2].bg;
+            this.new_image.bg = this.bg_list[2].bg;
+            return;
+          case 1:
+            this.show_bg = this.bg_list[5].bg;
+            this.new_image.bg = this.bg_list[5].bg;
+            return;
+          case 2:
+            this.show_bg = this.bg_list[4].bg;
+            this.new_image.bg = this.bg_list[4].bg;
+            return;
+          case 3:
+            this.show_bg = this.bg_list[3].bg;
+            this.new_image.bg = this.bg_list[3].bg;
+            return;
+          case 4:
+            this.show_bg = this.bg_list[14].bg;
+            this.new_image.bg = this.bg_list[14].bg;
+            return;
+          case 5:
+            this.show_bg = this.bg_list[15].bg;
+            this.new_image.bg = this.bg_list[15].bg;
+            return;
+          case 6:
+            this.show_bg = this.bg_list[16].bg;
+            this.new_image.bg = this.bg_list[16].bg;
+            return;
+          case 7:
+            this.show_bg = this.bg_list[17].bg;
+            this.new_image.bg = this.bg_list[17].bg;
+            return;
+          case 8:
+            this.show_bg = this.bg_list[6].bg;
+            this.new_image.bg = this.bg_list[6].bg;
+            return;
+          case 9:
+            this.show_bg = this.bg_list[8].bg;
+            this.new_image.bg = this.bg_list[8].bg;
+            return;
+          case 10:
+            this.show_bg = this.bg_list[9].bg;
+            this.new_image.bg = this.bg_list[9].bg;
+            return;
+          case 11:
+            this.show_bg = this.bg_list[7].bg;
+            this.new_image.bg = this.bg_list[7].bg;
+            return;
+          case 12:
+            this.show_bg = this.bg_list[13].bg;
+            this.new_image.bg = this.bg_list[13].bg;
+            return;
+          case 13:
+            this.show_bg = this.bg_list[10].bg;
+            this.new_image.bg = this.bg_list[10].bg;
+            return;
+          case 14:
+            this.show_bg = this.bg_list[12].bg;
+            this.new_image.bg = this.bg_list[12].bg;
+            return;
+          case 15:
+            this.show_bg = this.bg_list[11].bg;
+            this.new_image.bg = this.bg_list[11].bg;
+            return;
+          case 16:
+            this.show_bg = this.bg_list[18].bg;
+            this.new_image.bg = this.bg_list[18].bg;
+            return;
+          case 17:
+            this.show_bg = this.bg_list[19].bg;
+            this.new_image.bg = this.bg_list[19].bg;
+            return;
+          case 18:
+            this.show_bg = this.bg_list[21].bg;
+            this.new_image.bg = this.bg_list[21].bg;
+            return;
+          case 19:
+            this.show_bg = this.bg_list[20].bg;
+            this.new_image.bg = this.bg_list[20].bg;
+            return;
+
+        }
+      },
       //选择背景图片
       change_bg(id){
+        this.isFirst = false;
         this.show_bg = this.bg_list[id].bg;
         this.new_image.bg = this.bg_list[id].bg;
       },
       //选择背景色
       change_color(id){
+        this.isFirst = false;
         this.bg_color = this.color_list[id].color;
         this.new_image.color = this.color_list[id].color;
       },
@@ -253,7 +344,7 @@
       change_is_new_img(){
         this.is_true_img = true;
         this.is_new_img = true;
-        this.bg_color = 'yellow';
+        this.bg_color = '#fff100';
         this.$nextTick(()=>{
           this.create_img()
         });
@@ -261,6 +352,18 @@
       //返回login页面
       back_login(){
         this.$router.push({path:'/login'})
+      },
+      changan_touchstart(){
+        this.start_time = new Date();
+        // console.log(this.start_time.getTime())
+      },
+      changeChangan(){
+        // this.changan = !this.changan
+        let end_time = new Date();
+        if((end_time.getTime() - this.start_time.getTime())<100){
+          this.changan = !this.changan
+        }
+        // console.log(end_time.getTime() - this.start_time.getTime())
       },
       back_choose_person(){
         this.is_new_img = false;
@@ -304,15 +407,17 @@
   .second_container{
     display: flex;
     flex-direction: column;
-    width: calc(100% - 14vw);
-    height: calc(100% - 14vw);
-    padding: calc(7vw - 4px)
+    justify-content: space-between;
+    width: calc(100% - 14vw + 10px);
+    height: calc(100% - 14vw + 10px);
+    padding: calc(7vw - 5px)
   }
   .create_img{
     position: relative;
     width: 86vw;
     height: 110vw;
     border: 5px solid #000;
+    flex: .5 1 auto;
   }
   .back_img{
     display: flex;
@@ -397,18 +502,18 @@
   }
   .choose_button{
     border: 5px solid #000;
-    width: 6rem;
-    height: 2.8rem;
-    line-height: 2.8rem;
-    border-radius: 2.8rem;
+    width: 5.5rem;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    border-radius: 2.3rem;
     background-color: #fff;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: SourceHanSansSC-Bold;
   }
   .choose_button2{
     border: 5px solid #000;
-    width: 5.5rem;
+    width: 20vw;
     height: 2.8rem;
     line-height: 2.8rem;
     border-radius: 2.8rem;
@@ -424,6 +529,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 80vh;
   }
   .new_img_bg{
     width: 80vw;
