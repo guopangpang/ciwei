@@ -6,7 +6,7 @@
         <div class="title">
           <div class="title_left">
             <div class="game_master">GAME</div>
-            <div class="game_master" style="margin-top: -0.2rem">MASTER</div>
+            <div class="game_master" style="margin-top: -1.1vw">MASTER</div>
             <div class="game_master_ch">游戏大咖</div>
           </div>
           <div class="title_right">
@@ -19,26 +19,10 @@
           <img :src="show_bianzu2" @click="bianzu2">
           <img :src="show_bianzu3" @click="bianzu3">
         </div>
-        <div style="margin: .1rem 0; font-family: SourceHanSansSC-Bold;font-size: .8rem;text-align: center">选择我的段位</div>
+        <div style=" font-family: SourceHanSansSC-Bold;font-size: .8rem;text-align: center">选择我的段位</div>
         <div clickMusic='true' class="create_button" @click="goto_login()">开始生成</div>
       </div>
       <div class="footer_info">
-        <!--<div style="width: 100%">-->
-          <!--<div class="footer_first">-->
-            <!--<div class="start_game">START GAME</div>-->
-            <!--<div class="shaoshao">-->
-              <!--<div style="margin-top: .3rem">扫一扫</div>-->
-              <!--<div style="margin-top: -0.4rem">变怪兽</div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="footer_second">-->
-            <!--<div class="tuoluoguai">我的陀螺怪</div>-->
-            <!--<div class="wojiushi">-->
-              <!--<div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>-->
-              <!--<div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
         <img src="../src/foot_word.png" style="height: 100%">
         <img src="../src/test/chanquan.png" class="erweima_img">
       </div>
@@ -83,7 +67,6 @@
           this.number = 3
         },
         goto_login(){
-          // this.clickButton();
           this.$router.push({path:'/login',query:{num:this.number}})
         }
       }
@@ -97,26 +80,28 @@
     background-color: #fff100;
   }
   .second_container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: calc(100% - 14vw);
-    height: calc(100% - 10vw);
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-around;*/
+    width: 86vw;
+    height:  calc(100vh - 10vw);
     padding: 5vw 7vw
   }
   .header_logo_img{
     display: block;
     width: 86vw;
-    flex: .1 0 auto;
+    height: 20.79vw;
+    /*flex: .1 0 auto;*/
   }
   .choose{
-    /*height: 65vh;*/
+    height: calc(90vh - 37.09vw);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin: .3rem 0 0 0;
     border: 5px solid #000;
-    flex: 0.5 1 auto;
+    border-radius: 5px;
+    /*flex: 0.5 1 auto;*/
   }
   .title{
     display: flex;
@@ -135,7 +120,7 @@
   .number{
     font-family: FF-DIN-Round-Pro-Medium;
     font-size: 2.8rem;
-    margin: -.4rem 0 -.4rem 0;
+    margin: -1.5vw -1.5vw -1.5vw 0;
   }
   .number_logo{
     text-align: right;
@@ -146,15 +131,15 @@
     text-align: center;
   }
   .bianzu img{
-    margin: 3vw 0 0 0;
-    width: 65vw;
+    margin: 1vw 0 0 0;
+    width: 57vw;
   }
   .create_button{
     border: 5px solid #000;
-    width: 8rem;
-    height: 2.8rem;
-    line-height: 2.8rem;
-    border-radius: 2.8rem;
+    width: 36vw;
+    height: 10vw;
+    line-height: 10vw;
+    border-radius: 10vw;
     margin:0 auto .8rem;
     background-color: #fff;
     text-align: center;
@@ -163,46 +148,14 @@
   }
   .footer_info{
     display: flex;
-    width: 100%;
+    width: 86vw;
     margin-top: 1vw;
     justify-content: space-between;
     height: 16.3vw;
     /*flex: .2 0 auto;*/
   }
-  .footer_first{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%
-  }
-  .start_game{
-    font-size: 10vw;
-    font-family: FF-DIN-Round-Pro-Medium;
-  }
-  .shaoshao{
-    /*margin: 0 0 0 .7rem;*/
-    font-size: 3.8vw;
-    font-family: SourceHanSansSC-Bold;
-  }
   .erweima_img{
     height: 100%
     /*margin-top: 1.5vw;*/
   }
-  .footer_second{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: -0.5rem;
-  }
-  .tuoluoguai{
-    /*margin-right: .2vw;*/
-    font-size: 6.8vw;
-    font-family: SourceHanSansSC-Bold;
-  }
-  .wojiushi{
-    font-size: 2.6vw;
-    font-family: SourceHanSansSC-Bold;
-  }
-
 </style>

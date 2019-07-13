@@ -15,7 +15,7 @@
       name: "loading_page",
       mounted(){
         setTimeout(()=>{
-          this.$router.push({path:'chooseLogo'})
+          this.$router.push({path:'/chooseLogo'})
         },3000)
       }
     }

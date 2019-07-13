@@ -6,7 +6,7 @@
         <div class="title">
           <div class="title_left">
             <div class="game_master">GAME</div>
-            <div class="game_master" style="margin-top: -0.4rem">MASTER</div>
+            <div class="game_master" style="margin-top: -1.1vw">MASTER</div>
             <div class="game_master_ch">游戏大咖</div>
           </div>
           <div class="title_right">
@@ -17,34 +17,18 @@
         <div class="input_my_ifo">
           <div class="input_body">
             <span class="input_word_name">我的昵称</span>
-            <input class="input_word" placeholder="昵称" v-model="my_name" />
+            <input class="input_word" placeholder="昵称" v-model="my_name" ref="inputVal" />
             <span class="input_word_name">我的职位</span>
-            <input class="input_word" placeholder="设计师" v-model="my_work"/>
+            <input class="input_word" placeholder="设计湿" v-model="my_work"/>
           </div>
         </div>
-        <div style="display: flex;justify-content: space-between;width: 78%;margin: 0 11% 1rem">
+        <div style="display: flex;justify-content: space-between;width: 66%;margin: 0 17% 1rem">
           <div class="create_button" @click="goto_back()">返回</div>
           <div class="create_button" @click="goto_game()">完成</div>
         </div>
 
       </div>
       <div class="footer_info">
-        <!--<div style="width: 100%">-->
-          <!--<div class="footer_first">-->
-            <!--<div class="start_game">START GAME</div>-->
-            <!--<div class="shaoshao">-->
-              <!--<div style="margin-top: .3rem">扫一扫</div>-->
-              <!--<div style="margin-top: -0.2rem">变怪兽</div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="footer_second">-->
-            <!--<div class="tuoluoguai">我的陀螺怪</div>-->
-            <!--<div class="wojiushi">-->
-              <!--<div style="margin-top: 0">我就是 [XXX 品牌设计师]</div>-->
-              <!--<div style="margin-top: -0.2rem">我擅长 [各种花式设计稿]</div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
         <img src="../src/foot_word.png" style="height: 100%">
         <img src="../src/test/chanquan.png" class="erweima_img">
       </div>
@@ -65,7 +49,8 @@
     },
     mounted(){
       // this.number = this.$route.query.num;
-      this.number = localStorage.getItem('number')
+      this.number = localStorage.getItem('number');
+      // this.$refs.inputVal.focus();
     },
     methods:{
       goto_game(){
@@ -77,7 +62,7 @@
         }
 
         if(this.my_work === ''){
-          localStorage.setItem('my_work','设计师');
+          localStorage.setItem('my_work','设计湿');
         }else{
           localStorage.setItem('my_work',this.my_work);
         }
@@ -98,17 +83,18 @@
     background-color: #fff100;
   }
   .second_container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: calc(100% - 14vw);
-    height: calc(100% - 10vw);
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
+    width: 86vw;
+    height:  calc(100vh - 10vw);
     padding: 5vw 7vw
   }
   .header_logo_img{
     display: block;
     width: 86vw;
-    flex: .1 1 auto;
+    height: 20.79vw;
+    /*flex: .1 1 auto;*/
   }
   .choose{
     display: flex;
@@ -116,8 +102,9 @@
     justify-content: space-around;
     margin: .3rem 0 0 0;
     border: 5px solid #000;
-    flex: .5 1 auto;
-    /*height: 65vh;*/
+    border-radius: 5px;
+    /*flex: .5 1 auto;*/
+    height: calc(90vh - 37.09vw);
   }
   .title{
     display: flex;
@@ -136,7 +123,7 @@
   .number{
     font-family: FF-DIN-Round-Pro-Medium;
     font-size: 2.8rem;
-    margin: -.4rem 0 -.4rem 0;
+    margin: -1.5vw -1.5vw -1.5vw 0;
   }
   .number_logo{
     text-align: right;
@@ -149,37 +136,38 @@
     justify-content: center;
     background: url("../src/my_info.png") center no-repeat ;
     background-size: 100%;
-    width: 62vw;
-    height: 77vw;
-    margin: -2vw auto 1.5vw;
+    width: 52vw;
+    height: 75vw;
+    margin: 0 auto 1.5vw;
     text-align: center;
   }
   .input_body{
     margin-right: 4px;
-    margin-top: -10px;
-    width: 38%;
+    margin-top: -2.1vw;
+    width: 34%;
   }
   .input_body input{
     border: none;
-    border-left: 1px solid #000;
+    /*border-left: 1px solid #000;*/
     outline:none;
-    padding-left: 3px;
+    padding-left: 2vw;
     width: 90%;
   }
   .input_word_name{
-    font-size:.9rem;
+    font-size:3.5vw;
     font-family: SourceHanSansSC-Bold;
   }
   .input_word{
-    font-size: .8rem;
+    font-size: 3vw;
+    /*height: 3.5vw;*/
     font-family: SourceHanSansSC-Bold;
   }
   .create_button{
     border: 5px solid #000;
-    width: 6rem;
-    height: 2.8rem;
-    line-height: 2.8rem;
-    border-radius: 2.8rem;
+    width: 22vw;
+    height: 10vw;
+    line-height: 10vw;
+    border-radius: 10vw;
     /*margin: 0 calc(50% - 4rem) 1rem;*/
     background-color: #fff;
     text-align: center;
@@ -193,40 +181,9 @@
     margin-top: 1vw;
     justify-content: space-between;
   }
-  .footer_first{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%
-  }
-  .start_game{
-    font-size: 10vw;
-    font-family: FF-DIN-Round-Pro-Medium;
-  }
-  .shaoshao{
-    /*margin: 0 0 0 .7rem;*/
-    font-size: 3.8vw;
-    font-family: SourceHanSansSC-Bold;
-  }
   .erweima_img{
     /*width: 16.3vw;*/
     height: 100%
     /*margin-top: 1.5vw;*/
-  }
-  .footer_second{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: -0.5rem;
-  }
-  .tuoluoguai{
-    /*margin-right: .2vw;*/
-    font-size: 6.8vw;
-    font-family: SourceHanSansSC-Bold;
-  }
-  .wojiushi{
-    font-size: 2.6vw;
-    font-family: SourceHanSansSC-Bold;
   }
 </style>

@@ -16,8 +16,8 @@
         <div style="position: relative;height: 100%;width: 100%">
           <img :src="show_bg" class="greate_img_bg">
           <img :src="show_img" class="greate_img_person">
-          <div style="position: absolute;z-index: 5000;top: 18vw;left:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;">{{my_name}}／是我</div>
-          <div style="position: absolute;z-index: 5000;top: 18vw;right:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;">我是／{{my_work}}</div>
+          <div style="position: absolute;z-index: 5000;top: 18vw;left:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;line-height: .7rem">{{my_name}}／是我</div>
+          <div style="position: absolute;z-index: 5000;top: 18vw;right:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;line-height: .7rem">我是／{{my_work}}</div>
         </div>
       </div>
 
@@ -49,12 +49,12 @@
       <div style="display: flex;justify-content: space-between">
         <div @click="choose_person()" :style="{backgroundColor:show_choose_person?'#fff100':'#fff'}" class="choose_button">人物</div>
         <div @click="choose_bg()" :style="{backgroundColor:show_choose_gd?'#fff100':'#fff'}" class="choose_button">背景</div>
-        <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'#fff100':'#fff'}" class="choose_button">颜色</div>
+        <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'#fff100':'#fff'}" class="choose_button">底色</div>
       </div>
     </div>
 
     <!--按钮-->
-    <div v-if="is_new_img" style="position: fixed;bottom: 1vw">
+    <div v-if="is_new_img" style="position: fixed;bottom: -3vw">
       <div style="display: flex;justify-content: space-between;width: 75vw;margin: 5vw 12.5vw">
         <div class="choose_button2" @click="back_choose_person()">返回</div>
         <div class="choose_button2" @click="changan = !changan">长按
@@ -81,9 +81,9 @@
             <div style="position: relative;height: 100%;width: 100%">
               <div class="title_right_left">
                 <div class="title_left">
-                  <div class="game_master">GAME</div>
+                  <div class="game_master">LOGO</div>
                   <div class="game_master" style="margin-top: -0.4rem">MASTER</div>
-                  <div class="game_master_ch">游戏大咖</div>
+                  <div class="game_master_ch">品牌设计</div>
                 </div>
                 <div class="title_right">
                   <div class="number">NO.{{number}}</div>
@@ -92,9 +92,9 @@
               </div>
               <img :src="new_image.bg" class="greate_img_bg">
               <img :src="new_image.person" class="greate_img_person">
-              <img class="rigjt_logo" src="../src/logo.png" style="position: absolute;z-index: 5000;width: 8vw;bottom: 8vw;right: 0;transform:rotate(90deg)">
-              <div style="position: absolute;z-index: 5000;top: 18vw;left:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;">{{my_name}}／是我</div>
-              <div style="position: absolute;z-index: 5000;top: 18vw;right:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;">我是／{{my_work}}</div>
+              <img class="rigjt_logo" src="../src/logo.png" style="position: absolute;z-index: 5000;width: 8vw;bottom: 4vw;right: 0;transform:rotate(90deg)">
+              <div style="position: absolute;z-index: 5000;top: 18vw;left:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;line-height: .7rem">{{my_name}}／是我</div>
+              <div style="position: absolute;z-index: 5000;top: 18vw;right:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;line-height: .7rem">我是／{{my_work}}</div>
             </div>
           </div>
         </div>
@@ -407,17 +407,21 @@
   .second_container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: calc(100% - 14vw + 10px);
-    height: calc(100% - 14vw + 10px);
-    padding: calc(7vw - 5px)
+    justify-content: space-around;
+    /*width: calc(100% - 14vw);*/
+    /*height: calc(100% - 14vw);*/
+    /*padding: */
+    width: calc(80vw - 10px);
+    height:  calc(100vh - 7vw);
+    padding: 5vw 10vw 2vw
   }
   .create_img{
     position: relative;
-    width: 86vw;
-    height: 110vw;
+    width: calc(80vw - 10px);
+    height: 99vw;
     border: 5px solid #000;
-    flex: .5 1 auto;
+    border-radius: 5px;
+    /*flex: .5 1 auto;*/
   }
   .back_img{
     display: flex;
@@ -457,31 +461,32 @@
   }
   .greate_img_bg{
     position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%
+    top: -0.2%;
+    left: -0.2%;
+    width: 100.2%;
+    height: 100.2%
   }
   .greate_img_person{
     position: absolute;
-    width: 90%;
-    left: 5%;
-    bottom: 4vw
+    width: 88%;
+    left: 7%;
+    bottom: 2vw
   }
   .choose_list{
     display:flex;
-    width: 86vw;
-    height: 26vw;
+    width: 82vw;
+    /*height: 26vw;*/
     overflow: auto;
-    margin: 2.5vw 0 0 0;
+    margin: 1vw 0 0 0;
   }
   .choose_item{
-    width: 22%;
+    width: 18vw;
     flex: none;
     text-align: center;
   }
   .choose_item img{
-    width: 80%;
-    height: 70%;
+    width: 13.6vw;
+    height: 17.66vw;
   }
   .choose_item div{
     font-family: FF-DIN-Round-Pro-Bold;
@@ -502,7 +507,7 @@
   }
   .choose_button{
     border: 5px solid #000;
-    width: 5.5rem;
+    width: 20vw;
     height: 2.3rem;
     line-height: 2.3rem;
     border-radius: 2.3rem;
