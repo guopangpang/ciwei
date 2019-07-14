@@ -2,11 +2,11 @@
   <div class="loading_page">
     <div style="display: flex;justify-content: space-around;align-items: center;flex-direction: column;margin: 40vw auto;">
       <img src="../src/logo_big.png" style="width: 50vw">
-      <span style="margin-top: 6vw;">游戏加载中</span>
-      <span>......</span>
+      <div style="margin-top: 10vw;margin-bottom: -1.5vw; font-family: SourceHanSansSC-Light;font-size: 3.8vw">游戏加载中</div>
+      <div style="margin-bottom: -3vw; font-family: SourceHanSansSC-Light">...</div>
       <img src="../src/loading.gif" style="margin-top: 2vw;width: 60vw;">
     </div>
-    <div style="position: fixed;bottom: 4vw;text-align: center;width: 100vw;font-size: .6rem">Copy right by HEDGEHOG DESIGN</div>
+    <div style="position: fixed;bottom: 4vw;text-align: center;width: 100vw;font-size: 2.6vw;font-family: FF-DIN-Round-Pro-Medium">Copy right by HEDGEHOG DESIGN</div>
   </div>
 </template>
 

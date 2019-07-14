@@ -5,13 +5,15 @@
       <div class="choose">
         <div class="title">
           <div class="title_left">
-            <div class="game_master">GAME</div>
-            <div class="game_master" style="margin-top: -1.1vw">MASTER</div>
-            <div class="game_master_ch">游戏大咖</div>
+            <!--<div class="game_master">GAME</div>-->
+            <!--<div class="game_master" style="margin-top: -1.1vw">MASTER</div>-->
+            <!--<div class="game_master_ch">游戏大咖</div>-->
+            <img src="../src/bianzi/master.png" style="width: 14vw;">
           </div>
           <div class="title_right">
-            <div class="number">NO.{{number}}</div>
-            <div class="number_logo">L{{number}}满级</div>
+            <!--<div class="number">NO.{{number}}</div>-->
+            <!--<div class="number_logo">L{{number}}满级</div>-->
+            <img :src="no1" style="width: 22vw;margin-top: -1.5vw">
           </div>
         </div>
         <div class="bianzu">
@@ -19,7 +21,7 @@
           <img :src="show_bianzu2" @click="bianzu2">
           <img :src="show_bianzu3" @click="bianzu3">
         </div>
-        <div style=" font-family: SourceHanSansSC-Bold;font-size: .8rem;text-align: center">选择我的段位</div>
+        <div style=" font-family: SourceHanSansSC-Bold;font-size: 2.6vw;text-align: center;margin-top: -1vw">选择我的段位</div>
         <div clickMusic='true' class="create_button" @click="goto_login()">开始生成</div>
       </div>
       <div class="footer_info">
@@ -38,7 +40,8 @@
           show_bianzu1:require('../src/bianzi/bianzu1_yellow.png'),
           show_bianzu2:require('../src/bianzi/bianzu2.png'),
           show_bianzu3:require('../src/bianzi/bianzu3.png'),
-          number:1
+          number:1,
+          no1:require('../src/bianzi/no1.png')
         }
       },
       mounted(){
@@ -50,6 +53,7 @@
           this.show_bianzu2 = require('../src/bianzi/bianzu2.png');
           this.show_bianzu3 = require('../src/bianzi/bianzu3.png');
           localStorage.setItem('number',1);
+          this.no1 = require('../src/bianzi/no1.png');
           this.number = 1
         },
         bianzu2(){
@@ -57,6 +61,7 @@
           this.show_bianzu2 = require('../src/bianzi/bianzu2_yellow.png');
           this.show_bianzu3 = require('../src/bianzi/bianzu3.png');
           localStorage.setItem('number',2);
+          this.no1 = require('../src/bianzi/no2.png');
           this.number = 2
         },
         bianzu3(){
@@ -64,6 +69,7 @@
           this.show_bianzu2 = require('../src/bianzi/bianzu2.png');
           this.show_bianzu3 = require('../src/bianzi/bianzu3_yellow.png');
           localStorage.setItem('number',3);
+          this.no1 = require('../src/bianzi/no3.png');
           this.number = 3
         },
         goto_login(){
@@ -84,8 +90,8 @@
     /*flex-direction: column;*/
     /*justify-content: space-around;*/
     width: 86vw;
-    height:  calc(100vh - 10vw);
-    padding: 5vw 7vw
+    height:  calc(100vh - 8vw);
+    padding: 4vw 7vw
   }
   .header_logo_img{
     display: block;
@@ -98,7 +104,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: .3rem 0 0 0;
+    margin: 3vw 0 0 0;
     border: 5px solid #000;
     border-radius: 5px;
     /*flex: 0.5 1 auto;*/
@@ -107,7 +113,7 @@
     display: flex;
     justify-content: space-between;
     width: calc(100% - 1.6rem);
-    margin: .4rem .8rem 0;
+    margin: 1.8vw .8rem 0;
   }
   .title_left{}
   .game_master{
@@ -129,27 +135,28 @@
   }
   .bianzu{
     text-align: center;
+    margin-top: -4.5vw;
   }
   .bianzu img{
     margin: 1vw 0 0 0;
-    width: 57vw;
+    width: 63vw;
   }
   .create_button{
     border: 5px solid #000;
     width: 36vw;
-    height: 10vw;
-    line-height: 10vw;
+    height: 11vw;
+    line-height: 11vw;
     border-radius: 10vw;
     margin:0 auto .8rem;
     background-color: #fff;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 6.5vw;
     font-family: SourceHanSansSC-Bold;
   }
   .footer_info{
     display: flex;
     width: 86vw;
-    margin-top: 1vw;
+    margin-top: 2.5vw;
     justify-content: space-between;
     height: 16.3vw;
     /*flex: .2 0 auto;*/

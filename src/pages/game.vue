@@ -15,9 +15,9 @@
         <!--图片显示-->
         <div style="position: relative;height: 100%;width: 100%">
           <img :src="show_bg" class="greate_img_bg">
-          <img :src="show_img" class="greate_img_person">
-          <div style="position: absolute;z-index: 5000;top: 18vw;left:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;line-height: .7rem">{{my_name}}／是我</div>
-          <div style="position: absolute;z-index: 5000;top: 18vw;right:5vw;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;line-height: .7rem">我是／{{my_work}}</div>
+          <img :src="show_img" class="greate_img_person" style="bottom: 4vw">
+          <div style="position: absolute;z-index: 5000;top: 18vw;left:3.5vw;width: 10px;font-family: SourceHanSansCN-Regular;font-size: .4rem;line-height: .6rem">{{my_name}}／是我</div>
+          <div style="position: absolute;z-index: 5000;top: 18vw;right:3.5vw;width: 10px;font-family: SourceHanSansCN-Regular;font-size: .4rem;line-height: .6rem">我是／{{my_work}}</div>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
     </div>
 
     <!--按钮-->
-    <div v-if="is_new_img" style="position: fixed;bottom: -3vw">
+    <div v-if="is_new_img" style="position: fixed;bottom: -2vw">
       <div style="display: flex;justify-content: space-between;width: 75vw;margin: 5vw 12.5vw">
         <div class="choose_button2" @click="back_choose_person()">返回</div>
         <div class="choose_button2" @click="changan = !changan">长按
@@ -74,38 +74,41 @@
       <div :style="{backgroundColor: new_image.color}" class="new_img_bg" ref="box" v-show="is_true_img">
         <div style="padding: 5vw 0 2vw">
           <div class="new_img_title">
-            <div>{{new_image.im}}</div>
-            <div style="margin-top: -6px">{{new_image.able}}</div>
+            <div style="letter-spacing:-0.5vw;font-size: 7vw">{{new_image.im}}</div>
+            <div style="margin-top: -3vw;letter-spacing:-0.5vw;font-size: 7vw">{{new_image.able}}</div>
           </div>
           <div class="new_image">
             <div style="position: relative;height: 100%;width: 100%">
               <div class="title_right_left">
                 <div class="title_left">
-                  <div class="game_master">LOGO</div>
-                  <div class="game_master" style="margin-top: -0.4rem">MASTER</div>
-                  <div class="game_master_ch">品牌设计</div>
+                  <!--<div class="game_master">LOGO</div>-->
+                  <!--<div class="game_master" style="margin-top: -0.4rem">MASTER</div>-->
+                  <!--<div class="game_master_ch">品牌设计</div>-->
+                  <img src="../src/master_xi.png" style="width: 12vw;">
                 </div>
                 <div class="title_right">
-                  <div class="number">NO.{{number}}</div>
-                  <div class="number_logo">L{{number}}满级</div>
+                  <!--<div class="number">NO.{{number}}</div>-->
+                  <!--<div class="number_logo">L{{number}}满级</div>-->
+                  <img :src="no1" style="width: 19vw;margin-top: -1.5vw">
                 </div>
               </div>
               <img :src="new_image.bg" class="greate_img_bg">
               <img :src="new_image.person" class="greate_img_person">
-              <img class="rigjt_logo" src="../src/logo.png" style="position: absolute;z-index: 5000;width: 8vw;bottom: 4vw;right: 0;transform:rotate(90deg)">
-              <div style="position: absolute;z-index: 5000;top: 18vw;left:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;line-height: .7rem">{{my_name}}／是我</div>
-              <div style="position: absolute;z-index: 5000;top: 18vw;right:3%;width: 10px;font-family: SourceHanSansSC-Bold;font-size: .4rem;line-height: .7rem">我是／{{my_work}}</div>
+              <img class="rigjt_logo" src="../src/logo.png" style="position: absolute;z-index: 5000;width: 8vw;bottom: 6vw;right: 1vw;transform:rotate(90deg)">
+              <div style="position: absolute;z-index: 5000;top: 22vw;left:4.5%;width: 10px;font-family: SourceHanSansCN-Regular; font-size: .4rem;line-height: .6rem">{{my_name}}／是我</div>
+              <div style="position: absolute;z-index: 5000;top: 22vw;right:4.5%;width: 10px;font-family: SourceHanSansCN-Regular;font-size: .4rem;line-height: .6rem">我是／{{my_work}}</div>
             </div>
           </div>
         </div>
         <div class="footer_info">
           <div style="width: 100%">
             <div class="footer_first">
-              <div class="start_game">START GAME</div>
-              <div class="shaoshao">
-                <div style="margin-top: 0">扫一扫</div>
-                <div style="margin-top: -0.4rem">变怪兽</div>
-              </div>
+              <!--<div class="start_game">START GAME</div>-->
+              <!--<div class="shaoshao">-->
+                <!--<div style="margin-top: 0">扫一扫</div>-->
+                <!--<div style="margin-top: -0.4rem">变怪兽</div>-->
+              <!--</div>-->
+              <img src="../src/foot_first_word.png" style="height: 10.5vw;width: 56.06vw;margin-left: 0vw">
             </div>
             <div class="footer_second">
               <div class="tuoluoguai">{{new_image.name}}</div>
@@ -119,7 +122,7 @@
         </div>
       </div>
       <!--生成图片显示-->
-      <img :src="imgUrl" style="width: 75vw;margin-top: 10vw;box-shadow:0 2px 8px 0 rgba(47,45,2,0.16)" v-show="!is_true_img">
+      <img :src="imgUrl" style="width: 73vw;margin-top: 15vw;box-shadow:0 2px 8px 0 rgba(47,45,2,0.16)" v-show="!is_true_img">
     </div>
 
   </div>
@@ -143,8 +146,8 @@
         person_list:[{img:require('../src/person/1.png'),name:'刺猬陀螺怪',im:'我是 [佛系品牌设计师] ',able:'擅长 [吹牛卖稿谈客户]'},
           {img:require('../src/person/2.png'),name:'刺猬陀螺怪',im:'我是 [软萌品牌设计师]',able:'擅长 [沟通交流一稿过]'},
           {img:require('../src/person/3.png'),name:'刺猬陀螺怪',im:'我是 [肥宅品牌设计师]',able:'擅长 [节约时尚国际范]'},
-          {img:require('../src/person/4.png'),name:'刺猬陀螺怪',im:'我是 [逗比品牌设计师]',able:'擅长 [帅气风流有文化]'},
-          {img:require('../src/person/5.png'),name:'波波陀螺怪',im:'我是 [闷骚品牌设计师]',able:'擅长[熬夜加班改稿件]'},
+          {img:require('../src/person/4.png'),name:'刺猬陀螺怪',im:'我是 [逗比品牌设计师]',able:'擅长 [放大缩小改配色]'},
+          {img:require('../src/person/5.png'),name:'波波陀螺怪',im:'我是 [闷骚品牌设计师]',able:'擅长[帅气风流有文化]'},
           {img:require('../src/person/6.png'),name:'小美陀螺怪',im:'我是 [学霸品牌设计师]',able:'擅长[熬夜加班改稿件]'},
           {img:require('../src/person/7.png'),name:'落鸡陀螺怪',im:'我是 [朋克品牌设计师]',able:'擅长[时尚动感小清新]'},
           {img:require('../src/person/8.png'),name:'托尼陀螺怪',im:'我是 [咸鱼品牌设计师]',able:'擅长 [软件技能样样通]'},
@@ -161,36 +164,38 @@
           {img:require('../src/person/19.png'),name:'斯斯陀螺怪',im:'我是 [硬核品牌设计师]',able:'擅长 [生活工作两不误]'},
           {img:require('../src/person/20.png'),name:'扁壶陀螺怪',im:'我是 [精分品牌设计师]',able:'擅长 [五彩斑斓的黑色]'},
         ],//人物列表
-        bg_list:[{bg:require('../src/bg/bg3.png')},
+        bg_list:[
+          {bg:require('../src/bg/bg23.png')},
+          {bg:require('../src/bg/bg24.png')},
           {bg:require('../src/bg/bg1.png')},
           {bg:require('../src/bg/bg2.png')},
-          {bg:require('../src/bg/bg4.png')},
-          {bg:require('../src/bg/bg5.png')},
+          {bg:require('../src/bg/bg3.png')},
           {bg:require('../src/bg/bg6.png')},
-          {bg:require('../src/bg/bg7.png')},
-          {bg:require('../src/bg/bg8.png')},
-          {bg:require('../src/bg/bg9.png')},
-          {bg:require('../src/bg/bg10.png')},
-          {bg:require('../src/bg/bg11.png')},
-          {bg:require('../src/bg/bg12.png')},
-          {bg:require('../src/bg/bg13.png')},
-          {bg:require('../src/bg/bg14.png')},
+          {bg:require('../src/bg/bg5.png')},
+          {bg:require('../src/bg/bg4.png')},
           {bg:require('../src/bg/bg15.png')},
           {bg:require('../src/bg/bg16.png')},
           {bg:require('../src/bg/bg17.png')},
           {bg:require('../src/bg/bg18.png')},
           {bg:require('../src/bg/bg19.png')},
           {bg:require('../src/bg/bg20.png')},
-          {bg:require('../src/bg/bg21.png')},
           {bg:require('../src/bg/bg22.png')},
-          {bg:require('../src/bg/bg23.png')},
-          {bg:require('../src/bg/bg24.png')},
+          {bg:require('../src/bg/bg21.png')},
+          {bg:require('../src/bg/bg14.png')},
+          {bg:require('../src/bg/bg11.png')},
+          {bg:require('../src/bg/bg13.png')},
+          {bg:require('../src/bg/bg12.png')},
+          {bg:require('../src/bg/bg7.png')},
+          {bg:require('../src/bg/bg9.png')},
+          {bg:require('../src/bg/bg10.png')},
+          {bg:require('../src/bg/bg8.png')},
         ],//背景图列表
-        color_list:[{color:'#fff100'},{color:'#ffffff'},{color:'#00b27a'},{color:'#1295d8'},{color:'#f87089'},{color:'#d79133'},{color:'#faedbc'}],//背景色列表
+        color_list:[{color:'#ffffff'},{color:'#fff100'},{color:'#00b27a'},{color:'#1295d8'},{color:'#f87089'},{color:'#d79133'},{color:'#faedbc'}],//背景色列表
         new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},//生成图片需要的信息
         changan:false,
         isFirst:true,
         start_time:'',
+        no1:require('../src/bianzi/no1.png'),
 
         is_new_img:false,//控制显示选择图片选择显示
         imgUrl:'',//生成图片
@@ -200,18 +205,30 @@
     mounted(){
       //设定页面首次显示默认值
       this.show_img = this.person_list[0].img;
-      this.show_bg = this.bg_list[0].bg;
-      this.bg_color = this.color_list[0].color;
+      this.show_bg = this.bg_list[4].bg;
+      this.bg_color = this.color_list[1].color;
       //设定生成图片信息
       this.new_image.person = this.person_list[0].img;
       this.new_image.name = this.person_list[0].name;
       this.new_image.able = this.person_list[0].able;
       this.new_image.im = this.person_list[0].im;
-      this.new_image.bg = this.bg_list[0].bg;
-      this.new_image.color = this.color_list[0].color;
+      this.new_image.bg = this.bg_list[4].bg;
+      this.new_image.color = this.color_list[1].color;
+
+
+
 
       this.my_name = localStorage.getItem('my_name');
-      this.my_work = localStorage.getItem('my_work')
+      this.my_work = localStorage.getItem('my_work');
+      this.number = localStorage.getItem('number');
+      if(this.number ==1){
+        this.no1 = require('../src/bianzi/no1.png')
+      }else if(this.number ==2){
+        this.no1 = require('../src/bianzi/no2.png')
+      }else if(this.number ==3){
+        this.no1 = require('../src/bianzi/no3.png')
+      }
+
     },
     methods:{
       //选择人物
@@ -228,84 +245,84 @@
       duiying(id){
         switch(id){
           case 0:
-            this.show_bg = this.bg_list[2].bg;
-            this.new_image.bg = this.bg_list[2].bg;
+            this.show_bg = this.bg_list[4].bg;
+            this.new_image.bg = this.bg_list[4].bg;
             return;
           case 1:
             this.show_bg = this.bg_list[5].bg;
             this.new_image.bg = this.bg_list[5].bg;
             return;
           case 2:
-            this.show_bg = this.bg_list[4].bg;
-            this.new_image.bg = this.bg_list[4].bg;
-            return;
-          case 3:
-            this.show_bg = this.bg_list[3].bg;
-            this.new_image.bg = this.bg_list[3].bg;
-            return;
-          case 4:
-            this.show_bg = this.bg_list[14].bg;
-            this.new_image.bg = this.bg_list[14].bg;
-            return;
-          case 5:
-            this.show_bg = this.bg_list[15].bg;
-            this.new_image.bg = this.bg_list[15].bg;
-            return;
-          case 6:
-            this.show_bg = this.bg_list[16].bg;
-            this.new_image.bg = this.bg_list[16].bg;
-            return;
-          case 7:
-            this.show_bg = this.bg_list[17].bg;
-            this.new_image.bg = this.bg_list[17].bg;
-            return;
-          case 8:
             this.show_bg = this.bg_list[6].bg;
             this.new_image.bg = this.bg_list[6].bg;
             return;
-          case 9:
-            this.show_bg = this.bg_list[8].bg;
-            this.new_image.bg = this.bg_list[8].bg;
-            return;
-          case 10:
-            this.show_bg = this.bg_list[9].bg;
-            this.new_image.bg = this.bg_list[9].bg;
-            return;
-          case 11:
+          case 3:
             this.show_bg = this.bg_list[7].bg;
             this.new_image.bg = this.bg_list[7].bg;
             return;
-          case 12:
-            this.show_bg = this.bg_list[13].bg;
-            this.new_image.bg = this.bg_list[13].bg;
+          case 4:
+            this.show_bg = this.bg_list[8].bg;
+            this.new_image.bg = this.bg_list[8].bg;
             return;
-          case 13:
+          case 5:
+            this.show_bg = this.bg_list[9].bg;
+            this.new_image.bg = this.bg_list[9].bg;
+            return;
+          case 6:
             this.show_bg = this.bg_list[10].bg;
             this.new_image.bg = this.bg_list[10].bg;
             return;
-          case 14:
-            this.show_bg = this.bg_list[12].bg;
-            this.new_image.bg = this.bg_list[12].bg;
-            return;
-          case 15:
+          case 7:
             this.show_bg = this.bg_list[11].bg;
             this.new_image.bg = this.bg_list[11].bg;
             return;
-          case 16:
-            this.show_bg = this.bg_list[18].bg;
-            this.new_image.bg = this.bg_list[18].bg;
+          case 8:
+            this.show_bg = this.bg_list[20].bg;
+            this.new_image.bg = this.bg_list[20].bg;
             return;
-          case 17:
-            this.show_bg = this.bg_list[19].bg;
-            this.new_image.bg = this.bg_list[19].bg;
-            return;
-          case 18:
+          case 9:
             this.show_bg = this.bg_list[21].bg;
             this.new_image.bg = this.bg_list[21].bg;
             return;
+          case 10:
+            this.show_bg = this.bg_list[22].bg;
+            this.new_image.bg = this.bg_list[22].bg;
+            return;
+          case 11:
+            this.show_bg = this.bg_list[23].bg;
+            this.new_image.bg = this.bg_list[23].bg;
+            return;
+          case 12:
+            this.show_bg = this.bg_list[16].bg;
+            this.new_image.bg = this.bg_list[16].bg;
+            return;
+          case 13:
+            this.show_bg = this.bg_list[17].bg;
+            this.new_image.bg = this.bg_list[17].bg;
+            return;
+          case 14:
+            this.show_bg = this.bg_list[18].bg;
+            this.new_image.bg = this.bg_list[18].bg;
+            return;
+          case 15:
+            this.show_bg = this.bg_list[19].bg;
+            this.new_image.bg = this.bg_list[19].bg;
+            return;
+          case 16:
+            this.show_bg = this.bg_list[12].bg;
+            this.new_image.bg = this.bg_list[12].bg;
+            return;
+          case 17:
+            this.show_bg = this.bg_list[13].bg;
+            this.new_image.bg = this.bg_list[13].bg;
+            return;
+          case 18:
+            this.show_bg = this.bg_list[14].bg;
+            this.new_image.bg = this.bg_list[14].bg;
+            return;
           case 19:
-            this.show_bg = this.bg_list[20].bg;
-            this.new_image.bg = this.bg_list[20].bg;
+            this.show_bg = this.bg_list[15].bg;
+            this.new_image.bg = this.bg_list[15].bg;
             return;
 
         }
@@ -468,9 +485,9 @@
   }
   .greate_img_person{
     position: absolute;
-    width: 88%;
-    left: 7%;
-    bottom: 2vw
+    width: 90%;
+    left: 6%;
+    bottom: 4vw
   }
   .choose_list{
     display:flex;
@@ -508,12 +525,12 @@
   .choose_button{
     border: 5px solid #000;
     width: 20vw;
-    height: 2.3rem;
-    line-height: 2.3rem;
-    border-radius: 2.3rem;
+    height: 11vw;
+    line-height: 11vw;
+    border-radius: 11vw;
     background-color: #fff;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 6.5vw;
     font-family: SourceHanSansSC-Bold;
   }
   .choose_button2{
@@ -541,10 +558,13 @@
   }
   .new_img_title{
     border: 4px solid #000;
+    border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    /*border*/
     /*border-bottom: none;*/
     width: 70vw;
     margin: 0 auto -4px;
-    padding-bottom: 1vw;
+    /*padding-bottom: 1vw;*/
   }
   .new_img_title div{
     text-align: center;
@@ -556,13 +576,15 @@
     width: 70vw;
     height: 90vw;
     border: 4px solid #000;
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:4px;
     margin: 0 auto;
   }
   .title_right_left{
     position: absolute;
-    top: 0;
-    width: 94%;
-    margin: 0 3%;
+    top: 2vw;
+    width: 92%;
+    margin: 0 4%;
     display: flex;
     justify-content: space-between;
     z-index: 5000;
@@ -589,10 +611,10 @@
 
   .footer_info{
     display: flex;
-    width: 70vw;
+    width: 72vw;
     margin:  0 auto;
-    justify-content: space-between;
-    padding-bottom: 5vw;
+    justify-content: space-between;padding-top: .8vw;
+    padding-bottom: 3.6vw;
   }
   .footer_first{
     display: flex;
@@ -612,15 +634,16 @@
   .erweima_img{
     width: 14vw;
     height: 14vw;
-    margin-top: 1.5vw;
-    margin-left: .5vw;
+    margin-top: 1vw;
+    margin-left: 2.2vw;
   }
   .footer_second{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
-    margin-top: -0.5rem;
+    margin-top: -3.5vw;
+    margin-left: 0vw;
   }
   .tuoluoguai{
     /*margin-right: .2vw;*/

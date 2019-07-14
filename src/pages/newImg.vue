@@ -3,10 +3,10 @@
     <div class="second_container">
       <div class="fenxiang_tiile">
         <img src="../src/logo.png">
-        <img src="../src/up.gif">
+        <img src="../src/up.png">
       </div>
-      <img src="../src/person/1.png" style="width: 80vw">
-      <img src="../src/foot_wor_fenxiang.png" style="width: 100%;height: 30vw">
+      <img src="../src/person/1.png" style="width: 70vw;margin-top: -5vw">
+      <img src="../src/foot_wor_fenxiang.png" style="width: 92%;">
       <!--<div class="footer_info">-->
         <!--<div class="my_tuoluo">分享我的陀螺怪专属海报</div>-->
         <!--<div style="width: 100%">-->

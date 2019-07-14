@@ -7,6 +7,10 @@
   src: url('../../font/SourceHanSansSC-Light.otf');
 }
 @font-face{
+  font-family: SourceHanSansCN-Regular;
+  src: url('../../font/SourceHanSansCN-Regular.otf');
+}
+@font-face{
   font-family: FF-DIN-Round-Pro-Black;
   src: url('../../font/FF-DIN-Round-Pro-Black.otf');
 }
@@ -17,4 +21,8 @@
 @font-face{
   font-family: FF-DIN-Round-Pro-Medium;
   src: url('../../font/FF-DIN-Round-Pro-Medium.otf');
+}
+@font-face{
+  font-family: FF-DIN-Pro-Cond-Bold;
+  src: url('../../font/FF-DIN-Pro-Cond-Bold.otf');
 }
