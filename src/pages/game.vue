@@ -480,8 +480,8 @@
     position: absolute;
     top: -0.2%;
     left: -0.2%;
-    width: 100.2%;
-    height: 100.2%
+    width: 100.3%;
+    height: 100.5%
   }
   .greate_img_person{
     position: absolute;
