@@ -109,7 +109,7 @@
                 </div>
               </div>
               <img :src="new_image.bg" class="greate_img_bg">
-              <img :src="new_image.person" class="greate_img_person">
+              <img :src="new_image.person" class="greate_img_person" :style="{width:new_image.person=== require('../src/person/7.png')?'83%':'90%'}">
               <img class="rigjt_logo" src="../src/logo.png" style="position: absolute;z-index: 5000;width: 8vw;bottom: 6vw;right: 1vw;transform:rotate(90deg)">
               <div style="position: absolute;z-index: 5000;top: 22vw;left:4.5%;width: 10px;font-family: SourceHanSansCN-Regular; font-size: .4rem;line-height: .6rem">{{my_name}}／是我</div>
               <div style="position: absolute;z-index: 5000;top: 22vw;right:4.5%;width: 10px;font-family: SourceHanSansCN-Regular;font-size: .4rem;line-height: .6rem">我是／{{my_work}}</div>
