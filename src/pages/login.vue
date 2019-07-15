@@ -25,8 +25,12 @@
           </div>
         </div>
         <div style="display: flex;justify-content: space-between;width: 66%;margin: 0 17% 1rem">
-          <div class="create_button" @click="goto_back()">返回</div>
-          <div class="create_button" @click="goto_game()">完成</div>
+          <div class="create_button" @click="goto_back()">
+            <img src="../src/btn/back.png">
+          </div>
+          <div class="create_button" @click="goto_game()">
+            <img src="../src/btn/create.png">
+          </div>
         </div>
 
       </div>
@@ -169,24 +173,31 @@
     margin-top: -1.2vw;
     margin-bottom: -1.2vw;
     font-size:3.7vw;
-    font-family: SourceHanSansSC-Bold;
+    /*font-family: SourceHanSansSC-Bold;*/
+    /*font-family:SourceHanSansSC-Light;*/
+    font-weight: bold;
   }
   .input_word{
     font-size: 3.7vw;
     /*height: 3.5vw;*/
-    font-family: SourceHanSansSC-Bold;
+    /*font-family: SourceHanSansSC-Bold;*/
+    /*font-family:SourceHanSansSC-Light;*/
+    font-weight: bold;
   }
   .create_button{
     border: 5px solid #000;
     width: 22vw;
     height: 11vw;
-    line-height: 11vw;
+    line-height: 13.5vw;
     border-radius: 10vw;
     /*margin: 0 calc(50% - 4rem) 1rem;*/
     background-color: #fff;
     text-align: center;
     font-size: 6.5vw;
     font-family: SourceHanSansSC-Bold;
+  }
+  .create_button img{
+    width: 66%;
   }
   .footer_info{
     display: flex;

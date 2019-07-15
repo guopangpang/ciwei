@@ -21,8 +21,10 @@
           <img :src="show_bianzu2" @click="bianzu2">
           <img :src="show_bianzu3" @click="bianzu3">
         </div>
-        <div style=" font-family: SourceHanSansSC-Bold;font-size: 2.6vw;text-align: center;margin-top: -1vw">选择我的段位</div>
-        <div clickMusic='true' class="create_button" @click="goto_login()">开始生成</div>
+        <div style=" font-weight: bold;font-size: 2.6vw;text-align: center;margin-top: -1vw">选择我的段位</div>
+        <div class="create_button" @click="goto_login()">
+          <img src="../src/btn/start.png" style="width: 78%">
+        </div>
       </div>
       <div class="footer_info">
         <img src="../src/foot_word.png" style="height: 100%">
@@ -145,7 +147,7 @@
     border: 5px solid #000;
     width: 36vw;
     height: 11vw;
-    line-height: 11vw;
+    line-height: 13.5vw;
     border-radius: 10vw;
     margin:0 auto .8rem;
     background-color: #fff;

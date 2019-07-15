@@ -5,17 +5,21 @@
       <div class="create_img" :style="{backgroundColor: '#fff100'}">
         <div class="back_img">
           <img src="../src/back.png" @click="back_login()">
-          <div>返回编辑</div>
+          <div>
+            <img src="../src/btn/edit.png" style="width: 10vw;height: 10vw">
+          </div>
         </div>
         <div class="next_img">
-          <div>生成海报</div>
+          <div style="margin-right: .2vw">
+            <img src="../src/btn/ad.png" style="width: 10vw;height: 10vw">
+          </div>
           <img src="../src/next.png" @click="change_is_new_img()">
         </div>
 
         <!--图片显示-->
         <div style="position: relative;height: 100%;width: 100%">
           <img :src="show_bg" class="greate_img_bg">
-          <img :src="show_img" class="greate_img_person" style="bottom: 4vw">
+          <img :src="show_img" class="greate_img_person" style="bottom: 4vw" :style="{width:show_img=== require('../src/person/7.png')?'85%':'90%'}">
           <div style="position: absolute;z-index: 5000;top: 18vw;left:3.5vw;width: 10px;font-family: SourceHanSansCN-Regular;font-size: .4rem;line-height: .6rem">{{my_name}}／是我</div>
           <div style="position: absolute;z-index: 5000;top: 18vw;right:3.5vw;width: 10px;font-family: SourceHanSansCN-Regular;font-size: .4rem;line-height: .6rem">我是／{{my_work}}</div>
         </div>
@@ -47,20 +51,31 @@
 
       <!--按钮-->
       <div style="display: flex;justify-content: space-between">
-        <div @click="choose_person()" :style="{backgroundColor:show_choose_person?'#fff100':'#fff'}" class="choose_button">人物</div>
-        <div @click="choose_bg()" :style="{backgroundColor:show_choose_gd?'#fff100':'#fff'}" class="choose_button">背景</div>
-        <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'#fff100':'#fff'}" class="choose_button">底色</div>
+        <div @click="choose_person()" :style="{backgroundColor:show_choose_person?'#fff100':'#fff'}" class="choose_button">
+          <img src="../src/btn/person.png" style="width: 13.5vw">
+        </div>
+        <div @click="choose_bg()" :style="{backgroundColor:show_choose_gd?'#fff100':'#fff'}" class="choose_button">
+          <img src="../src/btn/bg.png" style="width: 13.5vw">
+        </div>
+        <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'#fff100':'#fff'}" class="choose_button">
+          <img src="../src/btn/bg_color.png" style="width: 13.5vw">
+        </div>
       </div>
     </div>
 
     <!--按钮-->
     <div v-if="is_new_img" style="position: fixed;bottom: -2vw">
       <div style="display: flex;justify-content: space-between;width: 75vw;margin: 5vw 12.5vw">
-        <div class="choose_button2" @click="back_choose_person()">返回</div>
-        <div class="choose_button2" @click="changan = !changan">长按
+        <div class="choose_button2" @click="back_choose_person()">
+          <img src="../src/btn/back2.png" style="width: 12vw">
+        </div>
+        <div class="choose_button2" @click="changan = !changan">
+          <img src="../src/btn/press.png" style="width: 12vw">
           <!--<a :href="imgUrl" download="logo.png" style="color: #000000;text-decoration:none;">长按</a>-->
         </div>
-        <div class="choose_button2" @click="goto_fenxiang()">分享</div>
+        <div class="choose_button2" @click="goto_fenxiang()">
+          <img src="../src/btn/share.png" style="width: 12vw">
+        </div>
       </div>
     </div>
 
@@ -72,10 +87,11 @@
     <div v-if="is_new_img" class="third_container" ref="box">
       <!--图片绘制-->
       <div :style="{backgroundColor: new_image.color}" class="new_img_bg" ref="box" v-show="is_true_img">
-        <div style="padding: 5vw 0 2vw">
+        <div style="padding: 9.5vw 0 2vw">
           <div class="new_img_title">
-            <div style="letter-spacing:-0.5vw;font-size: 7vw">{{new_image.im}}</div>
-            <div style="margin-top: -3vw;letter-spacing:-0.5vw;font-size: 7vw">{{new_image.able}}</div>
+            <!--<div style="letter-spacing:-0.5vw;font-size: 7vw">{{new_image.im}}</div>-->
+            <!--<div style="margin-top: -3vw;letter-spacing:-0.5vw;font-size: 7vw">{{new_image.able}}</div>-->
+            <img :src="new_image.title" style="width: 66vw;margin-bottom: -1.5vw;">
           </div>
           <div class="new_image">
             <div style="position: relative;height: 100%;width: 100%">
@@ -101,23 +117,24 @@
           </div>
         </div>
         <div class="footer_info">
-          <div style="width: 100%">
-            <div class="footer_first">
+          <!--<div style="width: 100%">-->
+            <img :src="new_image.foot" style="height: 15.5vw">
+            <!--<div class="footer_first">-->
               <!--<div class="start_game">START GAME</div>-->
               <!--<div class="shaoshao">-->
                 <!--<div style="margin-top: 0">扫一扫</div>-->
                 <!--<div style="margin-top: -0.4rem">变怪兽</div>-->
               <!--</div>-->
-              <img src="../src/foot_first_word.png" style="height: 10.5vw;width: 56.06vw;margin-left: 0vw">
-            </div>
-            <div class="footer_second">
-              <div class="tuoluoguai">{{new_image.name}}</div>
-              <div class="wojiushi">
-                <div style="margin-top: -0.2rem">角色 [你心中的超级英雄]</div>
-                <div style="margin-top: -0.2rem">惊喜 [性格彩蛋最终显示]</div>
-              </div>
-            </div>
-          </div>
+              <!--<img src="../src/foot_first_word.png" style="height: 10.5vw;width: 56.06vw;margin-left: 0vw">-->
+            <!--</div>-->
+            <!--<div class="footer_second">-->
+              <!--<div class="tuoluoguai">{{new_image.name}}</div>-->
+              <!--<div class="wojiushi">-->
+                <!--<div style="margin-top: -0.2rem">角色 [你心中的超级英雄]</div>-->
+                <!--<div style="margin-top: -0.2rem">惊喜 [性格彩蛋最终显示]</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
           <img src="../src/test/chanquan.png" class="erweima_img">
         </div>
       </div>
@@ -143,26 +160,27 @@
         show_choose_person:true,//人物选择栏
         show_choose_gd:false,//背景图选择栏
         show_choose_bg_color:false,//背景色选择栏
-        person_list:[{img:require('../src/person/1.png'),name:'刺猬陀螺怪',im:'我是 [佛系品牌设计师] ',able:'擅长 [吹牛卖稿谈客户]'},
-          {img:require('../src/person/2.png'),name:'刺猬陀螺怪',im:'我是 [软萌品牌设计师]',able:'擅长 [沟通交流一稿过]'},
-          {img:require('../src/person/3.png'),name:'刺猬陀螺怪',im:'我是 [肥宅品牌设计师]',able:'擅长 [节约时尚国际范]'},
-          {img:require('../src/person/4.png'),name:'刺猬陀螺怪',im:'我是 [逗比品牌设计师]',able:'擅长 [放大缩小改配色]'},
-          {img:require('../src/person/5.png'),name:'波波陀螺怪',im:'我是 [闷骚品牌设计师]',able:'擅长[帅气风流有文化]'},
-          {img:require('../src/person/6.png'),name:'小美陀螺怪',im:'我是 [学霸品牌设计师]',able:'擅长[熬夜加班改稿件]'},
-          {img:require('../src/person/7.png'),name:'落鸡陀螺怪',im:'我是 [朋克品牌设计师]',able:'擅长[时尚动感小清新]'},
-          {img:require('../src/person/8.png'),name:'托尼陀螺怪',im:'我是 [咸鱼品牌设计师]',able:'擅长 [软件技能样样通]'},
-          {img:require('../src/person/9.png'),name:'好抠陀螺怪',im:'我是 [懒癌品牌设计师]',able:'擅长 [酷炫狂拽吊炸天]'},
-          {img:require('../src/person/10.png'),name:'诺娃陀螺怪',im:'我是 [萝莉品牌设计师]',able:'擅长 [冷艳高贵接地气]'},
-          {img:require('../src/person/11.png'),name:'山姆陀螺怪',im:'我是 [学渣品牌设计师] ',able:'擅长 [奔放洋气有风度]'},
-          {img:require('../src/person/12.png'),name:'猪猪陀螺怪',im:'我是 [吃货品牌设计师]',able:'擅长 [学习总结做设计]'},
-          {img:require('../src/person/13.png'),name:'安娜陀螺怪',im:'我是 [御姐品牌设计师]',able:'擅长 [外猛内柔女汉子]'},
-          {img:require('../src/person/14.png'),name:'小美陀螺怪',im:'我是 [修仙品牌设计师]',able:'擅长 [首页私活赚大发]'},
-          {img:require('../src/person/15.png'),name:'雷雷陀螺怪',im:'我是 [清真品牌设计师] ',able:'擅长 [忧郁深沉无所谓]'},
-          {img:require('../src/person/16.png'),name:'星星陀螺怪',im:'我是 [怪诞品牌设计师]',able:'擅长 [低调奢华有内涵]'},
-          {img:require('../src/person/17.png'),name:'精杠陀螺怪',im:'我是 [奶狗品牌设计师]',able:'擅长 [字体品牌做捞狗]'},
-          {img:require('../src/person/18.png'),name:'噜当陀螺怪',im:'我是 [暖男品牌设计师] ',able:'擅长 [卖萌嘟嘴剪刀手]'},
-          {img:require('../src/person/19.png'),name:'斯斯陀螺怪',im:'我是 [硬核品牌设计师]',able:'擅长 [生活工作两不误]'},
-          {img:require('../src/person/20.png'),name:'扁壶陀螺怪',im:'我是 [精分品牌设计师]',able:'擅长 [五彩斑斓的黑色]'},
+        person_list:[
+          {img:require('../src/person/1.png'),title:require('../src/title/title1.png'),foot:require('../src/foot/foot1.png'),name:'刺猬陀螺怪',im:'我是 [佛系品牌设计师] ',able:'擅长 [吹牛卖稿谈客户]'},
+          {img:require('../src/person/2.png'),title:require('../src/title/title2.png'),foot:require('../src/foot/foot2.png'),name:'刺猬陀螺怪',im:'我是 [软萌品牌设计师]',able:'擅长 [沟通交流一稿过]'},
+          {img:require('../src/person/3.png'),title:require('../src/title/title3.png'),foot:require('../src/foot/foot3.png'),name:'刺猬陀螺怪',im:'我是 [肥宅品牌设计师]',able:'擅长 [节约时尚国际范]'},
+          {img:require('../src/person/4.png'),title:require('../src/title/title4.png'),foot:require('../src/foot/foot4.png'),name:'刺猬陀螺怪',im:'我是 [逗比品牌设计师]',able:'擅长 [放大缩小改配色]'},
+          {img:require('../src/person/5.png'),title:require('../src/title/title5.png'),foot:require('../src/foot/foot5.png'),name:'波波陀螺怪',im:'我是 [闷骚品牌设计师]',able:'擅长[帅气风流有文化]'},
+          {img:require('../src/person/6.png'),title:require('../src/title/title6.png'),foot:require('../src/foot/foot6.png'),name:'小美陀螺怪',im:'我是 [学霸品牌设计师]',able:'擅长[熬夜加班改稿件]'},
+          {img:require('../src/person/7.png'),title:require('../src/title/title7.png'),foot:require('../src/foot/foot7.png'),name:'落鸡陀螺怪',im:'我是 [朋克品牌设计师]',able:'擅长[时尚动感小清新]'},
+          {img:require('../src/person/8.png'),title:require('../src/title/title8.png'),foot:require('../src/foot/foot8.png'),name:'托尼陀螺怪',im:'我是 [咸鱼品牌设计师]',able:'擅长 [软件技能样样通]'},
+          {img:require('../src/person/9.png'),title:require('../src/title/title9.png'),foot:require('../src/foot/foot9.png'),name:'好抠陀螺怪',im:'我是 [懒癌品牌设计师]',able:'擅长 [酷炫狂拽吊炸天]'},
+          {img:require('../src/person/10.png'),title:require('../src/title/title10.png'),foot:require('../src/foot/foot10.png'),name:'诺娃陀螺怪',im:'我是 [萝莉品牌设计师]',able:'擅长 [冷艳高贵接地气]'},
+          {img:require('../src/person/11.png'),title:require('../src/title/title11.png'),foot:require('../src/foot/foot11.png'),name:'山姆陀螺怪',im:'我是 [学渣品牌设计师] ',able:'擅长 [奔放洋气有风度]'},
+          {img:require('../src/person/12.png'),title:require('../src/title/title12.png'),foot:require('../src/foot/foot12.png'),name:'猪猪陀螺怪',im:'我是 [吃货品牌设计师]',able:'擅长 [学习总结做设计]'},
+          {img:require('../src/person/13.png'),title:require('../src/title/title13.png'),foot:require('../src/foot/foot13.png'),name:'安娜陀螺怪',im:'我是 [御姐品牌设计师]',able:'擅长 [外猛内柔女汉子]'},
+          {img:require('../src/person/14.png'),title:require('../src/title/title14.png'),foot:require('../src/foot/foot14.png'),name:'小美陀螺怪',im:'我是 [修仙品牌设计师]',able:'擅长 [首页私活赚大发]'},
+          {img:require('../src/person/15.png'),title:require('../src/title/title15.png'),foot:require('../src/foot/foot15.png'),name:'雷雷陀螺怪',im:'我是 [清真品牌设计师] ',able:'擅长 [忧郁深沉无所谓]'},
+          {img:require('../src/person/16.png'),title:require('../src/title/title16.png'),foot:require('../src/foot/foot16.png'),name:'星星陀螺怪',im:'我是 [怪诞品牌设计师]',able:'擅长 [低调奢华有内涵]'},
+          {img:require('../src/person/17.png'),title:require('../src/title/title17.png'),foot:require('../src/foot/foot17.png'),name:'精杠陀螺怪',im:'我是 [奶狗品牌设计师]',able:'擅长 [字体品牌做捞狗]'},
+          {img:require('../src/person/18.png'),title:require('../src/title/title18.png'),foot:require('../src/foot/foot18.png'),name:'噜当陀螺怪',im:'我是 [暖男品牌设计师] ',able:'擅长 [卖萌嘟嘴剪刀手]'},
+          {img:require('../src/person/19.png'),title:require('../src/title/title19.png'),foot:require('../src/foot/foot19.png'),name:'斯斯陀螺怪',im:'我是 [硬核品牌设计师]',able:'擅长 [生活工作两不误]'},
+          {img:require('../src/person/20.png'),title:require('../src/title/title20.png'),foot:require('../src/foot/foot20.png'),name:'扁壶陀螺怪',im:'我是 [精分品牌设计师]',able:'擅长 [五彩斑斓的黑色]'},
         ],//人物列表
         bg_list:[
           {bg:require('../src/bg/bg23.png')},
@@ -191,7 +209,7 @@
           {bg:require('../src/bg/bg8.png')},
         ],//背景图列表
         color_list:[{color:'#ffffff'},{color:'#fff100'},{color:'#00b27a'},{color:'#1295d8'},{color:'#f87089'},{color:'#d79133'},{color:'#faedbc'}],//背景色列表
-        new_image:{person:'',name:'',able:'',im:'',bg:'',color:''},//生成图片需要的信息
+        new_image:{person:'',name:'',title:'', foot:'', able:'',im:'',bg:'',color:''},//生成图片需要的信息
         changan:false,
         isFirst:true,
         start_time:'',
@@ -212,10 +230,10 @@
       this.new_image.name = this.person_list[0].name;
       this.new_image.able = this.person_list[0].able;
       this.new_image.im = this.person_list[0].im;
+      this.new_image.title = this.person_list[0].title;
+      this.new_image.foot = this.person_list[0].foot;
       this.new_image.bg = this.bg_list[4].bg;
       this.new_image.color = this.color_list[1].color;
-
-
 
 
       this.my_name = localStorage.getItem('my_name');
@@ -241,6 +259,8 @@
         this.new_image.name = this.person_list[id].name;
         this.new_image.able = this.person_list[id].able;
         this.new_image.im = this.person_list[id].im;
+        this.new_image.title = this.person_list[id].title;
+        this.new_image.foot = this.person_list[id].foot;
       },
       duiying(id){
         switch(id){
@@ -526,23 +546,23 @@
     border: 5px solid #000;
     width: 20vw;
     height: 11vw;
-    line-height: 11vw;
+    line-height: 12.5vw;
     border-radius: 11vw;
     background-color: #fff;
     text-align: center;
     font-size: 6.5vw;
-    font-family: SourceHanSansSC-Bold;
+    /*font-family: SourceHanSansSC-Bold;*/
   }
   .choose_button2{
     border: 5px solid #000;
     width: 20vw;
-    height: 2.8rem;
-    line-height: 2.8rem;
-    border-radius: 2.8rem;
+    height: 10vw;
+    line-height: 11.5vw;
+    border-radius: 11vw;
     background-color: #fff;
     text-align: center;
     font-size: 1.5rem;
-    font-family: SourceHanSansSC-Bold;
+    /*font-family: SourceHanSansSC-Bold;*/
   }
 
   .third_container{
@@ -564,12 +584,14 @@
     /*border-bottom: none;*/
     width: 70vw;
     margin: 0 auto -4px;
+    padding: 1vw 0 1vw 0;
     /*padding-bottom: 1vw;*/
+    text-align: center;
   }
   .new_img_title div{
     text-align: center;
     font-size: 6.6vw;
-    font-family: SourceHanSansSC-Bold;
+    /*font-family: SourceHanSansSC-Bold;*/
   }
   .new_image{
     position: relative;
@@ -596,7 +618,7 @@
   }
   .game_master_ch{
     margin-top: -1vw;
-    font-family: SourceHanSansSC-Bold;
+    /*font-family: SourceHanSansSC-Bold;*/
   }
   .title_right{}
   .number{
@@ -614,7 +636,7 @@
     width: 72vw;
     margin:  0 auto;
     justify-content: space-between;padding-top: .8vw;
-    padding-bottom: 3.6vw;
+    padding-bottom: 8.6vw;
   }
   .footer_first{
     display: flex;
@@ -632,10 +654,10 @@
     font-family: SourceHanSansSC-Bold;
   }
   .erweima_img{
-    width: 14vw;
-    height: 14vw;
-    margin-top: 1vw;
-    margin-left: 2.2vw;
+    width: 15.5vw;
+    height: 15.5vw;
+    /*margin-top: 1vw;*/
+    /*margin-left: 2.2vw;*/
   }
   .footer_second{
     display: flex;
