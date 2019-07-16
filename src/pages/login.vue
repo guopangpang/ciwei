@@ -125,6 +125,7 @@
     border-radius: 5px;
     /*flex: .5 1 auto;*/
     height: calc(90vh - 37.09vw);
+    min-height: 300px;
   }
   .title{
     display: flex;
