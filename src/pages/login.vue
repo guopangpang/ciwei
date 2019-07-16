@@ -197,7 +197,13 @@
     border: 5px solid #000;
     width: 22vw;
     height: 11vw;
-    line-height: 10.5vw;
+    /*line-height: 10.5vw;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 10vw;
     /*margin: 0 calc(50% - 4rem) 1rem;*/
     background-color: #fff;

@@ -552,7 +552,13 @@
     border: 5px solid #000;
     width: 20vw;
     height: 11vw;
-    line-height: 10.5vw;
+    /*line-height: 10.5vw;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 11vw;
     background-color: #fff;
     text-align: center;
@@ -564,7 +570,12 @@
     border: 5px solid #000;
     width: 17vw;
     height: 10vw;
-    line-height: 10vw;
+    /*line-height: 10vw;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 10vw;
     background-color: #fff;
     text-align: center;
