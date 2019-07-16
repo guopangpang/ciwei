@@ -39,7 +39,7 @@ export default {
   padding: 0;
 }
 #app {
-  font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+  font-family: SourceHanSansSC-Bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /*text-align: center;*/

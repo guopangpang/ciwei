@@ -3,6 +3,10 @@
   src: url('../../font/SourceHanSansCN-Bold.otf');
 }
 @font-face{
+  font-family: SourceHanSansSC-Regular;
+  src: url('../../font/SourceHanSansSC-Regular.otf');
+}
+@font-face{
   font-family: FF-DIN-Round-Pro-Bold;
   src: url('../../font/FF-DIN-Round-Pro-Bold.otf');
 }
