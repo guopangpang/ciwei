@@ -6,12 +6,14 @@
         <div class="back_img">
           <img src="../src/back.png" @click="back_login()">
           <div>
-            <img src="../src/btn/edit.png" style="width: 10vw;height: 10vw">
+            返回编辑
+            <!--<img src="../src/btn/edit.png" style="width: 10vw;height: 10vw">-->
           </div>
         </div>
         <div class="next_img">
-          <div style="margin-right: .2vw">
-            <img src="../src/btn/ad.png" style="width: 10vw;height: 10vw">
+          <div style="margin-right: -2.6vw">
+            生产海报
+            <!--<img src="../src/btn/ad.png" style="width: 10vw;height: 10vw">-->
           </div>
           <img src="../src/next.png" @click="change_is_new_img()">
         </div>
@@ -52,13 +54,13 @@
       <!--按钮-->
       <div style="display: flex;justify-content: space-between">
         <div @click="choose_person()" :style="{backgroundColor:show_choose_person?'#fff100':'#fff'}" class="choose_button">
-          <img src="../src/btn/person.png" style="width: 13.5vw">
+          <!--<img src="../src/btn/person.png" style="width: 13.5vw">-->人物
         </div>
         <div @click="choose_bg()" :style="{backgroundColor:show_choose_gd?'#fff100':'#fff'}" class="choose_button">
-          <img src="../src/btn/bg.png" style="width: 13.5vw">
+          <!--<img src="../src/btn/bg.png" style="width: 13.5vw">-->背景
         </div>
         <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'#fff100':'#fff'}" class="choose_button">
-          <img src="../src/btn/bg_color.png" style="width: 13.5vw">
+          <!--<img src="../src/btn/bg_color.png" style="width: 13.5vw">-->底色
         </div>
       </div>
     </div>
@@ -67,14 +69,14 @@
     <div v-if="is_new_img" style="position: fixed;bottom: -2vw">
       <div style="display: flex;justify-content: space-between;width: 75vw;margin: 5vw 12.5vw">
         <div class="choose_button2" @click="back_choose_person()">
-          <img src="../src/btn/back2.png" style="width: 12vw">
+          <!--<img src="../src/btn/back2.png" style="width: 12vw">-->返回
         </div>
         <div class="choose_button2" @click="changan = !changan">
-          <img src="../src/btn/press.png" style="width: 12vw">
+          <!--<img src="../src/btn/press.png" style="width: 12vw">-->长按图片
           <!--<a :href="imgUrl" download="logo.png" style="color: #000000;text-decoration:none;">长按</a>-->
         </div>
         <div class="choose_button2" @click="goto_fenxiang()">
-          <img src="../src/btn/share.png" style="width: 12vw">
+          <!--<img src="../src/btn/share.png" style="width: 12vw">-->分享
         </div>
       </div>
     </div>
@@ -87,7 +89,7 @@
     <div v-if="is_new_img" class="third_container" ref="box">
       <!--图片绘制-->
       <div :style="{backgroundColor: new_image.color}" class="new_img_bg" ref="box" v-show="is_true_img">
-        <div style="padding: 9.5vw 0 2vw">
+        <div style="padding: 4.5vw 0 2vw">
           <div class="new_img_title">
             <!--<div style="letter-spacing:-0.5vw;font-size: 7vw">{{new_image.im}}</div>-->
             <!--<div style="margin-top: -3vw;letter-spacing:-0.5vw;font-size: 7vw">{{new_image.able}}</div>-->
@@ -410,14 +412,16 @@
         this.$router.push({path:'/newImg'})
       },
       create_img(){
-        html2canvas(this.$refs.box,{
-          backgroundColor: this.new_image.color,
-          useCORS: true // 如果截图的内容里有图片,可能会有跨域的情况,加上这个参数,解决文件跨域问题
-        }).then((canvas) => {
-          // this.imgUrl = URL.createObjectURL(this.base64ToBlob(canvas.toDataURL()))
-          this.imgUrl = canvas.toDataURL("image/png");
-          this.is_true_img = false
-        })
+        setTimeout(()=>{
+          html2canvas(this.$refs.box,{
+            backgroundColor: this.new_image.color,
+            useCORS: true // 如果截图的内容里有图片,可能会有跨域的情况,加上这个参数,解决文件跨域问题
+          }).then((canvas) => {
+            // this.imgUrl = URL.createObjectURL(this.base64ToBlob(canvas.toDataURL()))
+            this.imgUrl = canvas.toDataURL("image/png");
+            this.is_true_img = false
+          })
+        },2000);
       },
       base64ToBlob: function (code) {
         let parts = code.split(';base64,');
@@ -546,23 +550,23 @@
     border: 5px solid #000;
     width: 20vw;
     height: 11vw;
-    line-height: 12.5vw;
+    line-height: 11vw;
     border-radius: 11vw;
     background-color: #fff;
     text-align: center;
     font-size: 6.5vw;
-    /*font-family: SourceHanSansSC-Bold;*/
+    font-family: SourceHanSansSC-Bold;
   }
   .choose_button2{
     border: 5px solid #000;
-    width: 20vw;
+    width: 22vw;
     height: 10vw;
-    line-height: 11.5vw;
-    border-radius: 11vw;
+    line-height: 10vw;
+    border-radius: 10vw;
     background-color: #fff;
     text-align: center;
-    font-size: 1.5rem;
-    /*font-family: SourceHanSansSC-Bold;*/
+    font-size: 5vw;
+    font-family: SourceHanSansSC-Bold;
   }
 
   .third_container{
@@ -636,7 +640,7 @@
     width: 72vw;
     margin:  0 auto;
     justify-content: space-between;padding-top: .8vw;
-    padding-bottom: 8.6vw;
+    padding-bottom: 3.6vw;
   }
   .footer_first{
     display: flex;

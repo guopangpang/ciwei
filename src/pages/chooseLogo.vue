@@ -21,9 +21,10 @@
           <img :src="show_bianzu2" @click="bianzu2">
           <img :src="show_bianzu3" @click="bianzu3">
         </div>
-        <div style=" font-weight: bold;font-size: 2.6vw;text-align: center;margin-top: -1vw">选择我的段位</div>
+        <div style=" font-family: SourceHanSansSC-Bold;font-size: 2.6vw;text-align: center;margin-top: -1vw">选择我的段位</div>
         <div class="create_button" @click="goto_login()">
           <img src="../src/btn/start.png" style="width: 78%">
+          <!--开始生产-->
         </div>
       </div>
       <div class="footer_info">
@@ -119,20 +120,20 @@
   }
   .title_left{}
   .game_master{
-    font-family: FF-DIN-Round-Pro-Bold;
+    /*font-family: FF-DIN-Round-Pro-Bold;*/
   }
   .game_master_ch{
-    font-family: SourceHanSansSC-Bold;
+    /*font-family: SourceHanSansSC-Bold;*/
   }
   .title_right{}
   .number{
-    font-family: FF-DIN-Round-Pro-Medium;
+    /*font-family: FF-DIN-Round-Pro-Medium;*/
     font-size: 2.8rem;
     margin: -1.5vw -1.5vw -1.5vw 0;
   }
   .number_logo{
     text-align: right;
-    font-family: SourceHanSansSC-Bold;
+    /*font-family: SourceHanSansSC-Bold;*/
     font-size: .4rem;
   }
   .bianzu{

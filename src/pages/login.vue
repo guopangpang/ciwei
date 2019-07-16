@@ -72,15 +72,21 @@
         if(this.my_name === ''){
           localStorage.setItem('my_name','陀螺怪');
         }else{
-          localStorage.setItem('my_name',this.my_name);
+          if(this.my_name.length<6){
+            localStorage.setItem('my_name',this.my_name);
+          }else{
+            localStorage.setItem('my_name',this.my_name.substring(0,5));
+          }
         }
-
         if(this.my_work === ''){
           localStorage.setItem('my_work','设计湿');
         }else{
-          localStorage.setItem('my_work',this.my_work);
+          if(this.my_work.length<6){
+            localStorage.setItem('my_work',this.my_work);
+          }else{
+            localStorage.setItem('my_work',this.my_work.substring(0,5));
+          }
         }
-
         this.$router.push({path:'/game',query:{num:this.number,my_name:this.my_name,my_work:this.my_work}})
       },
       goto_back(){

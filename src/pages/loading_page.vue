@@ -7,7 +7,7 @@
       <img src="../src/game_load.png" style="margin-top: 10vw;width: 25vw">
       <img src="../src/loading.gif" style="margin-top: 2vw;width: 60vw;">
     </div>
-    <div style="position: fixed;bottom: 4vw;text-align: center;width: 100vw;font-size: 2.6vw;font-family: FF-DIN-Round-Pro-Medium">Copy right by HEDGEHOG DESIGN</div>
+    <div style="position: fixed;bottom: 4vw;text-align: center;width: 100vw;font-size: 2.6vw;font-family: SourceHanSansSC-Bold">Copy right by HEDGEHOG DESIGN</div>
   </div>
 </template>
 

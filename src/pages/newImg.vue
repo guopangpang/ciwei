@@ -3,7 +3,10 @@
     <div class="second_container">
       <div class="fenxiang_tiile">
         <img src="../src/logo.png">
-        <img src="../src/up.png">
+        <div style="display: flex">
+          <div style="margin-right:-2.7vw; line-height: 1rem;width: 46px;font-family: SourceHanSansSC-Bold;">分享圈子</div>
+          <img src="../src/up.png">
+        </div>
       </div>
       <img src="../src/person/1.png" style="width: 70vw;margin-top: -5vw">
       <img src="../src/foot_wor_fenxiang.png" style="width: 92%;">
