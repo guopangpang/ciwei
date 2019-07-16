@@ -71,7 +71,7 @@
         <div class="choose_button2" @click="back_choose_person()">
           <!--<img src="../src/btn/back2.png" style="width: 12vw">-->返回
         </div>
-        <div class="choose_button2" @click="changan = !changan">
+        <div class="choose_button2" @click="changan = !changan" style="width: 28vw">
           <!--<img src="../src/btn/press.png" style="width: 12vw">-->长按图片
           <!--<a :href="imgUrl" download="logo.png" style="color: #000000;text-decoration:none;">长按</a>-->
         </div>
@@ -481,6 +481,7 @@
     line-height: 1rem;
     width: 46px;
     font-family: SourceHanSansSC-Bold;
+    font-weight: bold;
   }
   .next_img{
     display: flex;
@@ -499,6 +500,7 @@
     line-height: 1rem;
     width: 46px;
     font-family: SourceHanSansSC-Bold;
+    font-weight: bold;
   }
   .greate_img_bg{
     position: absolute;
@@ -550,23 +552,25 @@
     border: 5px solid #000;
     width: 20vw;
     height: 11vw;
-    line-height: 11vw;
+    line-height: 10.5vw;
     border-radius: 11vw;
     background-color: #fff;
     text-align: center;
     font-size: 6.5vw;
     font-family: SourceHanSansSC-Bold;
+    font-weight: bold;
   }
   .choose_button2{
     border: 5px solid #000;
-    width: 22vw;
+    width: 17vw;
     height: 10vw;
     line-height: 10vw;
     border-radius: 10vw;
     background-color: #fff;
     text-align: center;
-    font-size: 5vw;
+    font-size: 6.5vw;
     font-family: SourceHanSansSC-Bold;
+    font-weight: bold;
   }
 
   .third_container{
