@@ -564,11 +564,11 @@
     border: 5px solid #000;
     width: 17vw;
     height: 10vw;
-    line-height: 10vw;
+    line-height: 9.5vw;
     border-radius: 10vw;
     background-color: #fff;
     text-align: center;
-    font-size: 6.5vw;
+    font-size: 5.8vw;
     font-family: SourceHanSansSC-Bold;
     font-weight: bold;
   }
