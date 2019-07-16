@@ -23,7 +23,8 @@
         </div>
         <div style=" font-family: SourceHanSansSC-Bold;font-size: 2.6vw;text-align: center;margin-top: -1vw">选择我的段位</div>
         <div class="create_button" @click="goto_login()">
-          <img src="../src/btn/start.png" style="width: 78%">
+          开始生成
+          <!--<img src="../src/btn/start.png" style="width: 78%">-->
           <!--开始生产-->
         </div>
       </div>
@@ -148,13 +149,19 @@
     border: 5px solid #000;
     width: 36vw;
     height: 11vw;
-    line-height: 13.5vw;
+    /*line-height: 10.5vw;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 10vw;
     margin:0 auto .8rem;
     background-color: #fff;
     text-align: center;
     font-size: 6.5vw;
     font-family: SourceHanSansSC-Bold;
+    font-weight: bold;
   }
   .footer_info{
     display: flex;

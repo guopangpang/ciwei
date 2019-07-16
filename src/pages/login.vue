@@ -26,10 +26,12 @@
         </div>
         <div style="display: flex;justify-content: space-between;width: 66%;margin: 0 17% 1rem">
           <div class="create_button" @click="goto_back()">
-            <img src="../src/btn/back.png">
+            返回
+            <!--<img src="../src/btn/back.png">-->
           </div>
           <div class="create_button" @click="goto_game()">
-            <img src="../src/btn/create.png">
+            完成
+            <!--<img src="../src/btn/create.png">-->
           </div>
         </div>
 
@@ -195,13 +197,14 @@
     border: 5px solid #000;
     width: 22vw;
     height: 11vw;
-    line-height: 13.5vw;
+    line-height: 10.5vw;
     border-radius: 10vw;
     /*margin: 0 calc(50% - 4rem) 1rem;*/
     background-color: #fff;
     text-align: center;
     font-size: 6.5vw;
     font-family: SourceHanSansSC-Bold;
+    font-weight: bold;
   }
   .create_button img{
     width: 66%;

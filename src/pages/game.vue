@@ -54,13 +54,13 @@
       <!--按钮-->
       <div style="display: flex;justify-content: space-between">
         <div @click="choose_person()" :style="{backgroundColor:show_choose_person?'#fff100':'#fff'}" class="choose_button">
-          <!--<img src="../src/btn/person.png" style="width: 13.5vw">-->人物
+          人物
         </div>
         <div @click="choose_bg()" :style="{backgroundColor:show_choose_gd?'#fff100':'#fff'}" class="choose_button">
-          <!--<img src="../src/btn/bg.png" style="width: 13.5vw">-->背景
+          背景
         </div>
         <div @click="choose_bg_color()" :style="{backgroundColor:show_choose_bg_color?'#fff100':'#fff'}" class="choose_button">
-          <!--<img src="../src/btn/bg_color.png" style="width: 13.5vw">-->底色
+          底色
         </div>
       </div>
     </div>
@@ -496,7 +496,7 @@
     height: 9vw;
   }
   .next_img div{
-    margin-right: -8px;
+    margin-right: 5px;
     line-height: 1rem;
     width: 46px;
     font-family: SourceHanSansSC-Bold;
@@ -564,7 +564,7 @@
     border: 5px solid #000;
     width: 17vw;
     height: 10vw;
-    line-height: 9.5vw;
+    line-height: 10vw;
     border-radius: 10vw;
     background-color: #fff;
     text-align: center;
