@@ -12,7 +12,7 @@
         </div>
         <div class="next_img">
           <div style="margin-right: -2.6vw">
-            生产海报
+            生成海报
             <!--<img src="../src/btn/ad.png" style="width: 10vw;height: 10vw">-->
           </div>
           <img src="../src/next.png" @click="change_is_new_img()">
